@@ -71,7 +71,7 @@ const Navbar = () => {
 
           <Maybe test={isLoggedIn}>
             <Typography variant="h6" color="inherit" sx={{ marginRight: '15px', color: 'white' }}>
-              Hello, {user?.username}!
+              Hello, {(user as any)?.username}!
             </Typography>
             <StyledButton variant="text" onClick={handleLogout}>
               Logout

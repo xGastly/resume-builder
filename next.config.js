@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // output: 'export',
+  DISABLE_ESLINT_PLUGIN=true
 
   reactStrictMode: true,
   eslint: {

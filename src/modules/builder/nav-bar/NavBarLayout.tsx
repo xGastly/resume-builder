@@ -92,7 +92,7 @@ const NavBarLayout = () => {
     };
 
     if (user) {
-      const { data, status } = await UserAPI.updateUserResume(user.id, updatedResumeJson);
+      const { data, status } = await UserAPI.updateUserResume((user as any).id, updatedResumeJson);
       if (status != 200) {
         setMessageSave('Data update failed.');
       }

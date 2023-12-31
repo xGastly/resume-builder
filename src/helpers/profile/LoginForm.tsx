@@ -1,53 +1,45 @@
+import React from 'react';
+import { useFormik } from 'formik';
 import Router from 'next/router';
-import React, { ChangeEvent, Fragment } from 'react';
-import UserAPI from 'src/helpers/api/user';
-import { TextField, Button, Container, Paper, Typography } from '@mui/material';
-import { motion, useAnimation } from 'framer-motion';
-import { setToken } from '../utils/helpers';
-import { useAuthContext } from '../context/AuthContext';
+import * as Yup from 'yup';
+import { Container, Paper, Typography, TextField, Button } from '@mui/material';
+import UserAPI from '../api/user';
+import { setToken } from 'src/helpers/utils/helpers';
+import { useAuthContext } from 'src/helpers/context/AuthContext';
 
 const LoginForm = () => {
-  const [isLoading, setLoading] = React.useState(false);
-  const [errors, setErrors] = React.useState([]);
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
   const { setUser } = useAuthContext();
 
-  const animationEffectsFirstLoad = {
-    scale: [0.9, 1],
-    opacity: [0, 1],
-  };
-  const transtionEffects = {
-    type: 'spring',
-    stiffness: 400,
-    damping: 17,
-  };
+  // Yup validation schema
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string().required('Password is required'),
+  });
 
-  const handleEmailChange = React.useCallback((e) => setEmail(e.target.value), []);
-  const handlePasswordChange = React.useCallback((e) => setPassword(e.target.value), []);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const { data, status } = await UserAPI.login(email, password);
-      if (status !== 200) {
-        setErrors(data.errors);
+  // Formik hook
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      // Handle form submission here
+      try {
+        const { data, status } = await UserAPI.login(values.email, values.password);
+        if (status !== 200) {
+        }
+        if (data?.user) {
+          setToken(data.jwt);
+          setUser(data.user);
+          Router.push('/');
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
       }
-
-      if (data?.user) {
-        setToken(data.jwt);
-        setUser(data.user);
-        Router.push('/');
-      }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    },
+  });
 
   return (
     <Container component="main" maxWidth="xs" className="pt-12">
@@ -56,14 +48,17 @@ const LoginForm = () => {
         style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
       >
         <Typography variant="h5">Login Form</Typography>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={formik.handleSubmit}>
           <TextField
             label="Email"
             variant="outlined"
             margin="normal"
             fullWidth
-            value={email}
-            onChange={handleEmailChange}
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
           />
           <TextField
             label="Password"
@@ -71,8 +66,11 @@ const LoginForm = () => {
             margin="normal"
             type="password"
             fullWidth
-            value={password}
-            onChange={handlePasswordChange}
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
           />
           <Button
             type="submit"
@@ -80,7 +78,7 @@ const LoginForm = () => {
             className="bg-resume-800 mb-2"
             style={{ marginTop: '20px' }}
           >
-            Summit
+            Submit
           </Button>
         </form>
       </Paper>
