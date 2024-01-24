@@ -69,7 +69,7 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
       <textarea
         ref={editorContainerRef}
         className={`min-h-[200px] min-w-full bg-[rgba(0,0,0,0.06)]`}
-      ></textarea>
+      />
     </div>
   )
 })

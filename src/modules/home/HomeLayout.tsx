@@ -59,7 +59,7 @@ const HomeLayout = () => {
               <h1 className="text-5xl mb-12 text-resume-800">Professional Resume</h1>
 
               <div className="flex mb-10">
-                <div className="bg-resume-800 w-1 rounded-lg"></div>
+                <div className="bg-resume-800 w-1 rounded-lg" />
                 <p className="text-lg ml-3 text-resume-800">
                   LeBlanc&apos;s Law: &ldquo;Later Equals Never&rdquo;. Let&apos;s begin right away!
                 </p>

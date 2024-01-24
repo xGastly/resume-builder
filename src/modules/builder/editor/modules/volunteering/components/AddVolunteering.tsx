@@ -34,9 +34,9 @@ const AddVolunteeringExp = ({
   const buttonCaption = useMemo(() => {
     if (isEmpty) {
       return '+ Add a volunteering experience'
-    } else {
-      return '+ Add more'
     }
+      return '+ Add more'
+    
   }, [isEmpty])
 
   return (

@@ -10,7 +10,7 @@ interface ITemplateStore {
 
 export const useTemplates = create<ITemplateStore>((set) => ({
   availableTemplate: AVAILABLE_TEMPLATES,
-  activeTemplate: AVAILABLE_TEMPLATES['modern'],
+  activeTemplate: AVAILABLE_TEMPLATES.modern,
 
   setTemplate: (template: ITemplateContent) => {
     localStorage.setItem('selectedTemplateId', template.id)

@@ -36,7 +36,7 @@ const AuthProvider = ({ children }: { children: any }) => {
     if (authToken) {
       fetchLoggedInUser(authToken)
     }
-  }, [])
+  }, [fetchLoggedInUser])
 
   return (
     <AuthContext.Provider value={{ user: userData, setUser: handleUser, isLoading }}>

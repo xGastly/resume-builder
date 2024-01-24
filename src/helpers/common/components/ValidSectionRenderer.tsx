@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useMemo } from 'react'
+import { ReactNode, useMemo } from 'react'
 import { IAwardItem } from 'src/stores/awards.interface'
 import { IEducationItem } from 'src/stores/education.interface'
 import { IExperienceItem } from 'src/stores/experience.interface'
@@ -26,5 +26,5 @@ export const SectionValidator = ({
     return null
   }
 
-  return <Fragment>{children}</Fragment>
+  return <>{children}</>
 }

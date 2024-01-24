@@ -30,5 +30,5 @@
   "editor.formatOnSave": true,
   "editor.inlayHints.enabled": "on",
   "javascript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterNames.enabled": "all"
 }

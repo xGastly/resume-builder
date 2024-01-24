@@ -31,17 +31,17 @@ export const ResumeLayout = () => {
   useEffect(() => {
     resetResumeStore()
     const selectedTemplateId =
-      localStorage.getItem('selectedTemplateId') || AVAILABLE_TEMPLATES['modern'].id
+      localStorage.getItem('selectedTemplateId') || AVAILABLE_TEMPLATES.modern.id
     useTemplates.getState().setTemplate(AVAILABLE_TEMPLATES[selectedTemplateId])
 
     if (!error && data && data.profile) {
       const eResume = data.profile
-      if (!!eResume) {
+      if (eResume) {
         updateResumeStore(eResume)
         setUser(data)
       }
     }
-  }, [data, error])
+  }, [data, error, setUser])
 
   return (
     <div className="mx-5 print:mx-0 mb-2 print:mb-0">
