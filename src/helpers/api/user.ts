@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from 'axios'
 
-import { APP_STRAPI_BASE_URL, BEARER } from '../utils/constant';
-import { getToken } from '../utils/helpers';
+import { APP_STRAPI_BASE_URL, BEARER } from '../utils/constant'
+import { getToken } from '../utils/helpers'
 
 const UserAPI = {
   login: async (email: string, password: string) => {
@@ -17,12 +17,12 @@ const UserAPI = {
             'Content-Type': 'application/json',
           },
         }
-      );
-      return response;
+      )
+      return response
     } catch (error) {
       // return error.response;
     }
-    return { data: {}, status: 500 };
+    return { data: {}, status: 500 }
   },
   register: async (username: string, email: string, password: string) => {
     try {
@@ -34,15 +34,15 @@ const UserAPI = {
             'Content-Type': 'application/json',
           },
         }
-      );
-      return response;
+      )
+      return response
     } catch (error) {
       // return error.response;
     }
-    return { data: {}, status: 500 };
+    return { data: {}, status: 500 }
   },
   updateUserResume: async (id: number, resume: any) => {
-    const token = getToken() || '';
+    const token = getToken() || ''
 
     try {
       const response = await axios.put(
@@ -54,13 +54,13 @@ const UserAPI = {
             Authorization: `${BEARER} ${encodeURIComponent(token)}`,
           },
         }
-      );
-      return response;
+      )
+      return response
     } catch (error) {
       // return error.response;
     }
-    return { data: {}, status: 500 };
+    return { data: {}, status: 500 }
   },
-};
+}
 
-export default UserAPI;
+export default UserAPI

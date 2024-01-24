@@ -1,12 +1,12 @@
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer';
-import { dateParser } from 'src/helpers/utils';
-import { IExperienceItem } from 'src/stores/experience.interface';
+import Timeline from '@mui/lab/Timeline'
+import TimelineConnector from '@mui/lab/TimelineConnector'
+import TimelineContent from '@mui/lab/TimelineContent'
+import TimelineDot from '@mui/lab/TimelineDot'
+import TimelineItem from '@mui/lab/TimelineItem'
+import TimelineSeparator from '@mui/lab/TimelineSeparator'
+import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer'
+import { dateParser } from 'src/helpers/utils'
+import { IExperienceItem } from 'src/stores/experience.interface'
 
 export default function Work({ work }: { work: IExperienceItem[] }) {
   return (
@@ -26,7 +26,7 @@ export default function Work({ work }: { work: IExperienceItem[] }) {
         </Timeline>
       ))}
     </div>
-  );
+  )
 }
 
 function ExperienceHeader({ work }: { work: IExperienceItem }) {
@@ -43,5 +43,5 @@ function ExperienceHeader({ work }: { work: IExperienceItem }) {
         <div className="italic text-xs">{work.years}</div>
       </div>
     </>
-  );
+  )
 }

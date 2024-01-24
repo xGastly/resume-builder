@@ -1,5 +1,5 @@
-import { IItem } from 'src/stores/index.interface';
-import { SectionHeading } from '../atoms/SectionHeading';
+import { IItem } from 'src/stores/index.interface'
+import { SectionHeading } from '../atoms/SectionHeading'
 
 export const SkillsSection = ({ title, list }: { title: string; list: IItem[] }) => {
   return (
@@ -16,5 +16,5 @@ export const SkillsSection = ({ title, list }: { title: string; list: IItem[] })
         ))}
       </div>
     </div>
-  );
-};
+  )
+}

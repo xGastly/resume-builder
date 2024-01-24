@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const Maybe = ({ test, children }: { test: boolean; children: any }) => <>{test && children}</>;
+const Maybe = ({ test, children }: { test: boolean; children: any }) => <>{test && children}</>
 
-export default Maybe;
+export default Maybe

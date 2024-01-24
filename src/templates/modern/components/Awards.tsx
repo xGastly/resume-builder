@@ -1,10 +1,10 @@
-import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer';
-import { IAwards } from 'src/stores/index.interface';
-import { SectionHeading } from '../atoms/SectionHeading';
-import { SectionList } from '../atoms/SectionList';
-import { SectionSubtitle } from '../atoms/SectionSubtitle';
-import { SectionTitle } from '../atoms/SectionTitle';
-import { dateParser } from 'src/helpers/utils';
+import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer'
+import { dateParser } from 'src/helpers/utils'
+import { IAwards } from 'src/stores/index.interface'
+import { SectionHeading } from '../atoms/SectionHeading'
+import { SectionList } from '../atoms/SectionList'
+import { SectionSubtitle } from '../atoms/SectionSubtitle'
+import { SectionTitle } from '../atoms/SectionTitle'
 
 export const AwardSection = ({ awardsReceived }: { awardsReceived: IAwards[] }) => {
   return (
@@ -25,8 +25,8 @@ export const AwardSection = ({ awardsReceived }: { awardsReceived: IAwards[] }) 
               <HTMLRenderer htmlString={award.summary} />
             </SectionList>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}

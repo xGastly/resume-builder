@@ -1,63 +1,63 @@
-import React, { ChangeEvent, Fragment, useCallback } from 'react';
-import TextField from '@mui/material/TextField';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import TextField from '@mui/material/TextField'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import React, { ChangeEvent, Fragment, useCallback } from 'react'
 
-import { useExperiences } from 'src/stores/experience';
-import { IExperienceItem } from 'src/stores/experience.interface';
-import { SwitchWidget } from 'src/helpers/common/atoms/Switch';
-import { RichtextEditor } from 'src/helpers/common/components/richtext';
-import { DATE_PICKER_FORMAT } from 'src/helpers/constants';
+import { SwitchWidget } from 'src/helpers/common/atoms/Switch'
+import { RichtextEditor } from 'src/helpers/common/components/richtext'
+import { DATE_PICKER_FORMAT } from 'src/helpers/constants'
+import { useExperiences } from 'src/stores/experience'
+import { IExperienceItem } from 'src/stores/experience.interface'
 
 interface IExperienceProps {
-  experienceInfo: IExperienceItem;
-  currentIndex: number;
+  experienceInfo: IExperienceItem
+  currentIndex: number
 }
 
 const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }) => {
   const onChangeHandler = useCallback(
     (name: string, value: any) => {
-      const currentExpInfo = { ...experienceInfo };
-      const updateExperience = useExperiences.getState().updateExperience;
+      const currentExpInfo = { ...experienceInfo }
+      const updateExperience = useExperiences.getState().updateExperience
       switch (name) {
         case 'companyName':
-          currentExpInfo.name = value;
-          break;
+          currentExpInfo.name = value
+          break
         case 'position':
-          currentExpInfo.position = value;
-          break;
+          currentExpInfo.position = value
+          break
         case 'startDate':
           if (value?.isValid()) {
-            currentExpInfo.startDate = value;
+            currentExpInfo.startDate = value
           }
-          break;
+          break
         case 'isWorkingHere':
-          currentExpInfo.isWorkingHere = value;
-          break;
+          currentExpInfo.isWorkingHere = value
+          break
         case 'endDate':
           if (value?.isValid()) {
-            currentExpInfo.endDate = value;
+            currentExpInfo.endDate = value
           }
-          break;
+          break
         case 'years':
-          currentExpInfo.years = value;
-          break;
+          currentExpInfo.years = value
+          break
         case 'summary':
-          currentExpInfo.summary = value;
-          break;
+          currentExpInfo.summary = value
+          break
         default:
-          break;
+          break
       }
-      updateExperience(currentIndex, currentExpInfo);
+      updateExperience(currentIndex, currentExpInfo)
     },
     [currentIndex, experienceInfo]
-  );
+  )
 
   const onSummaryChange = useCallback(
     (htmlOutput: string) => {
-      onChangeHandler('summary', htmlOutput);
+      onChangeHandler('summary', htmlOutput)
     },
     [onChangeHandler]
-  );
+  )
 
   return (
     <Fragment>
@@ -66,8 +66,8 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         variant="filled"
         value={experienceInfo.name}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('companyName', value);
+          const value = e.target.value
+          onChangeHandler('companyName', value)
         }}
         autoComplete="off"
         fullWidth
@@ -80,8 +80,8 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         variant="filled"
         value={experienceInfo.position}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('position', value);
+          const value = e.target.value
+          onChangeHandler('position', value)
         }}
         autoComplete="off"
         fullWidth
@@ -92,7 +92,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         label="Start date"
         value={experienceInfo.startDate}
         onChange={(newDate) => {
-          onChangeHandler('startDate', newDate);
+          onChangeHandler('startDate', newDate)
         }}
         inputFormat={DATE_PICKER_FORMAT}
         renderInput={(params) => (
@@ -103,14 +103,14 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         label={'I currently work here'}
         value={experienceInfo.isWorkingHere ?? false}
         onChange={(newValue: boolean) => {
-          onChangeHandler('isWorkingHere', newValue);
+          onChangeHandler('isWorkingHere', newValue)
         }}
       />
       <DatePicker
         label="End date"
         value={experienceInfo.isWorkingHere ? null : experienceInfo.endDate}
         onChange={(newDate) => {
-          onChangeHandler('endDate', newDate);
+          onChangeHandler('endDate', newDate)
         }}
         inputFormat={DATE_PICKER_FORMAT}
         renderInput={(params) => (
@@ -130,8 +130,8 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         variant="filled"
         value={experienceInfo.years}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('years', value);
+          const value = e.target.value
+          onChangeHandler('years', value)
         }}
         autoComplete="off"
         fullWidth
@@ -144,7 +144,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         name="summary"
       />
     </Fragment>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

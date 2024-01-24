@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const ListErrors = ({ errors }: { errors: any }) => (
   <ul className="error-messages">
@@ -7,9 +7,9 @@ const ListErrors = ({ errors }: { errors: any }) => (
         <li key={key}>
           {key} {errors[key]}
         </li>
-      );
+      )
     })}
   </ul>
-);
+)
 
-export default ListErrors;
+export default ListErrors

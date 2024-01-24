@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
 function FeatureSection() {
   return (
@@ -40,7 +40,7 @@ function FeatureSection() {
         </p>
       </FeatureCard>
     </>
-  );
+  )
 }
 
 const FeatureCard = ({ children }: { children: React.ReactNode }) => {
@@ -53,15 +53,15 @@ const FeatureCard = ({ children }: { children: React.ReactNode }) => {
         {children}
       </div>
     </Link>
-  );
-};
+  )
+}
 
 const CardPinnnedIcon = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="backdrop-blur-2xl bg-resume-100 rounded-full p-2 shadow-level-hard absolute right-0 top-0 -mt-4 -mr-1">
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default FeatureSection;
+export default FeatureSection

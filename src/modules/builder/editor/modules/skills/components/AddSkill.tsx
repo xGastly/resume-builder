@@ -1,61 +1,61 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { TextField } from '@mui/material';
-import SliderValue from '../atoms/SliderValue';
-import { OutlinedButton, TextButton } from 'src/helpers/common/atoms/Buttons';
-import { ISkillItem } from 'src/stores/skill.interface';
+import { TextField } from '@mui/material'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { OutlinedButton, TextButton } from 'src/helpers/common/atoms/Buttons'
+import { ISkillItem } from 'src/stores/skill.interface'
+import SliderValue from '../atoms/SliderValue'
 
 const AddSkill = ({
   addHandler,
   items,
   hasLevel = false,
 }: {
-  addHandler: ({ name, level }: ISkillItem) => void;
-  items: ISkillItem[];
-  hasLevel: boolean;
+  addHandler: ({ name, level }: ISkillItem) => void
+  items: ISkillItem[]
+  hasLevel: boolean
 }) => {
-  const [showForm, setShowForm] = useState(false);
-  const [name, setName] = useState('');
-  const [level, setLevel] = useState(0);
-  const [disabled, setDisabled] = useState(true);
-  const [errorText, setErrorText] = useState('');
-  const inputRef = useRef<HTMLInputElement>();
+  const [showForm, setShowForm] = useState(false)
+  const [name, setName] = useState('')
+  const [level, setLevel] = useState(0)
+  const [disabled, setDisabled] = useState(true)
+  const [errorText, setErrorText] = useState('')
+  const inputRef = useRef<HTMLInputElement>()
 
   const toggleForm = () => {
-    setShowForm(!showForm);
-    setName('');
-  };
+    setShowForm(!showForm)
+    setName('')
+  }
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-    setErrorText('');
-  };
+    setName(e.target.value)
+    setErrorText('')
+  }
 
   const submitHandler = (e: ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    doneHandler();
-  };
+    e.preventDefault()
+    doneHandler()
+  }
 
   const doneHandler = () => {
-    const trimmedText = name.trim();
-    const trimmedLowerText = trimmedText.toLowerCase();
+    const trimmedText = name.trim()
+    const trimmedLowerText = trimmedText.toLowerCase()
 
     if (items.find((item) => item.name.toLowerCase() === trimmedLowerText)) {
-      setErrorText('Duplicate entry');
+      setErrorText('Duplicate entry')
     } else {
-      setName('');
-      setErrorText('');
-      addHandler({ name: trimmedText, level });
-      inputRef.current?.focus();
+      setName('')
+      setErrorText('')
+      addHandler({ name: trimmedText, level })
+      inputRef.current?.focus()
     }
-  };
+  }
 
   useEffect(() => {
     if (name.length > 0) {
-      setDisabled(false);
+      setDisabled(false)
     } else {
-      setDisabled(true);
+      setDisabled(true)
     }
-  }, [name]);
+  }, [name])
 
   const formEl = (
     <form onSubmit={submitHandler}>
@@ -80,9 +80,9 @@ const AddSkill = ({
         <TextButton onClick={toggleForm}>Cancel</TextButton>
       </div>
     </form>
-  );
+  )
 
-  return showForm ? formEl : <OutlinedButton onClick={toggleForm}>+ Add more</OutlinedButton>;
-};
+  return showForm ? formEl : <OutlinedButton onClick={toggleForm}>+ Add more</OutlinedButton>
+}
 
-export default AddSkill;
+export default AddSkill

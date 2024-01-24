@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import Box from '@mui/material/Box';
-import { IActivityTab } from '../ActivitiesLayout';
+import Box from '@mui/material/Box'
+import React, { Fragment } from 'react'
+import { IActivityTab } from '../ActivitiesLayout'
 
 const BasicPanel = ({ activeTab }: { activeTab: IActivityTab }) => {
-  const ActiveTabComponent = activeTab.component;
+  const ActiveTabComponent = activeTab.component
 
   return (
     <Fragment>
@@ -21,7 +21,7 @@ const BasicPanel = ({ activeTab }: { activeTab: IActivityTab }) => {
         <ActiveTabComponent />
       </Box>
     </Fragment>
-  );
-};
+  )
+}
 
-export default BasicPanel;
+export default BasicPanel

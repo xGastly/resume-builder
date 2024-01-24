@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic';
-import { IThemeColor, ITemplate } from './index.interface';
+import dynamic from 'next/dynamic'
+import { ITemplate, IThemeColor } from './index.interface'
 
 export const SYSTEM_COLORS: IThemeColor[] = [
   {
@@ -23,7 +23,7 @@ export const SYSTEM_COLORS: IThemeColor[] = [
     highlighterColor: '#F556E5',
     id: 3,
   },
-];
+]
 
 export const AVAILABLE_TEMPLATES: ITemplate = {
   modern: {
@@ -42,7 +42,7 @@ export const AVAILABLE_TEMPLATES: ITemplate = {
       ssr: false,
     }),
   },
-};
+}
 
 export const CUSTOM_THEME_COLOR: IThemeColor = {
   backgroundColor: 'white',
@@ -50,6 +50,6 @@ export const CUSTOM_THEME_COLOR: IThemeColor = {
   titleColor: 'green',
   highlighterColor: '#ff7875',
   id: 4,
-};
+}
 
-export const DATE_PICKER_FORMAT = 'DD/MM/YYYY';
+export const DATE_PICKER_FORMAT = 'DD/MM/YYYY'

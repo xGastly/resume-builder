@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
-import { OutlinedButton } from 'src/helpers/common/atoms/Buttons';
-import { useExperiences } from 'src/stores/experience';
-import { IExperienceItem } from 'src/stores/experience.interface';
+import { useMemo } from 'react'
+import { OutlinedButton } from 'src/helpers/common/atoms/Buttons'
+import { useExperiences } from 'src/stores/experience'
+import { IExperienceItem } from 'src/stores/experience.interface'
 
 const NEW_EXPERIENCE: IExperienceItem = {
   name: '',
@@ -14,31 +14,31 @@ const NEW_EXPERIENCE: IExperienceItem = {
   id: '',
   url: '',
   highlights: [],
-};
+}
 
 const AddExperience = ({
   handleChange,
   isEmpty,
 }: {
-  handleChange: (name: string, isExpanded: boolean) => void;
-  isEmpty: boolean;
+  handleChange: (name: string, isExpanded: boolean) => void
+  isEmpty: boolean
 }) => {
-  const addNewExperience = useExperiences((state) => state.add);
+  const addNewExperience = useExperiences((state) => state.add)
 
   const onCreateNewExperience = () => {
-    const uniqueExpandedId = `${Math.random()}`;
-    NEW_EXPERIENCE.id = uniqueExpandedId;
-    addNewExperience(NEW_EXPERIENCE);
-    handleChange(uniqueExpandedId, true);
-  };
+    const uniqueExpandedId = `${Math.random()}`
+    NEW_EXPERIENCE.id = uniqueExpandedId
+    addNewExperience(NEW_EXPERIENCE)
+    handleChange(uniqueExpandedId, true)
+  }
 
   const buttonCaption = useMemo(() => {
     if (isEmpty) {
-      return '+ Add an experience';
+      return '+ Add an experience'
     } else {
-      return '+ Add more';
+      return '+ Add more'
     }
-  }, [isEmpty]);
+  }, [isEmpty])
 
   return (
     <div className="flex gap-2 mt-3">
@@ -46,7 +46,7 @@ const AddExperience = ({
         {buttonCaption}
       </OutlinedButton>
     </div>
-  );
-};
+  )
+}
 
-export default AddExperience;
+export default AddExperience

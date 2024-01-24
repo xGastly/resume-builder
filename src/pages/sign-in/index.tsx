@@ -1,6 +1,6 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import SignInLayout from 'src/modules/sign-in/SignInLayout';
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import SignInLayout from 'src/modules/sign-in/SignInLayout'
 
 const SignIn: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const SignIn: NextPage = () => {
 
       <SignInLayout />
     </div>
-  );
-};
+  )
+}
 
-export default SignIn;
+export default SignIn

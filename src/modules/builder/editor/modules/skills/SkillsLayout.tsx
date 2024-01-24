@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState } from 'react'
+import EditSectionContainer from 'src/helpers/common/components/EditSectionContainer'
 import {
   useDatabases,
   useFrameworks,
@@ -7,9 +8,8 @@ import {
   usePractices,
   useTechnologies,
   useTools,
-} from 'src/stores/skills';
-import EditSectionContainer from 'src/helpers/common/components/EditSectionContainer';
-import Skill from './components/Skill';
+} from 'src/stores/skills'
+import Skill from './components/Skill'
 
 const SkillsLayout = () => {
   const skillState = [
@@ -20,13 +20,13 @@ const SkillsLayout = () => {
     useDatabases(),
     usePractices(),
     useTools(),
-  ];
+  ]
 
-  const [expanded, setExpanded] = useState<string | false>('Languages');
+  const [expanded, setExpanded] = useState<string | false>('Languages')
 
   const handleChange = (panel: string, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+    setExpanded(isExpanded ? panel : false)
+  }
 
   return (
     <div className="flex flex-col gap-8 mb-8">
@@ -49,7 +49,7 @@ const SkillsLayout = () => {
         </EditSectionContainer>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default SkillsLayout;
+export default SkillsLayout

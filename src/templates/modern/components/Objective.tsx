@@ -1,6 +1,6 @@
-import { SectionHeading } from '../atoms/SectionHeading';
-import { SectionText } from '../atoms/SectionText';
-import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer';
+import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer'
+import { SectionHeading } from '../atoms/SectionHeading'
+import { SectionText } from '../atoms/SectionText'
 
 export const Objective = ({ objective }: { objective: string }) => {
   return (
@@ -10,5 +10,5 @@ export const Objective = ({ objective }: { objective: string }) => {
         <HTMLRenderer htmlString={objective} />
       </SectionText>
     </>
-  );
-};
+  )
+}

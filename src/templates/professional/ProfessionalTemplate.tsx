@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 
-import AboutMe from './components/AboutMe';
-import Achievements from './components/Achievements';
-import BasicIntro from './components/BasicIntro';
-import { Education } from './components/Education';
-import Involvement from './components/Involvement';
-import { Objective } from './components/Objective';
-import RatedSkills from './components/RatedSkills';
-import { Section } from './components/Section';
-import { SectionValidator } from 'src/helpers/common/components/ValidSectionRenderer';
-import { StateContext } from 'src/modules/builder/resume/ResumeLayout';
-import UnratedSkills from './components/UnratedSkills';
-import Work from './components/Work';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
+import { SectionValidator } from 'src/helpers/common/components/ValidSectionRenderer'
+import { StateContext } from 'src/modules/builder/resume/ResumeLayout'
+import AboutMe from './components/AboutMe'
+import Achievements from './components/Achievements'
+import BasicIntro from './components/BasicIntro'
+import { Education } from './components/Education'
+import Involvement from './components/Involvement'
+import { Objective } from './components/Objective'
+import RatedSkills from './components/RatedSkills'
+import { Section } from './components/Section'
+import UnratedSkills from './components/UnratedSkills'
+import Work from './components/Work'
 
 const ResumeContainer = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const ResumeContainer = styled.div`
   @media print {
     border: none;
   }
-`;
+`
 
 const LeftSection = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const LeftSection = styled.div`
   flex-basis: 66%;
   row-gap: 20px;
   height: 100%;
-`;
+`
 
 const RightSection = styled.div`
   display: flex;
@@ -40,13 +40,13 @@ const RightSection = styled.div`
   row-gap: 20px;
   height: 100%;
   font-size: 12px;
-`;
+`
 
 export default function ProfessionalTemplate() {
-  const resumeData = useContext(StateContext);
-  const skills = resumeData.skills;
-  const involvements = resumeData.activities.involvements;
-  const achievements = resumeData.activities.achievements;
+  const resumeData = useContext(StateContext)
+  const skills = resumeData.skills
+  const involvements = resumeData.activities.involvements
+  const achievements = resumeData.activities.achievements
 
   return (
     <ResumeContainer>
@@ -118,5 +118,5 @@ export default function ProfessionalTemplate() {
         </SectionValidator>
       </RightSection>
     </ResumeContainer>
-  );
+  )
 }

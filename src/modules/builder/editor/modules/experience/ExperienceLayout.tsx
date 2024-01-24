@@ -1,26 +1,26 @@
-import { useEffect, useState } from 'react';
-import { useExperiences } from 'src/stores/experience';
-import AddExperience from './components/AddExperience';
-import Experience from './components/Experience';
+import { useEffect, useState } from 'react'
+import { useExperiences } from 'src/stores/experience'
+import AddExperience from './components/AddExperience'
+import Experience from './components/Experience'
 
-import MoveEditSection from 'src/helpers/common/components/MoveEditSectionContainer';
+import MoveEditSection from 'src/helpers/common/components/MoveEditSectionContainer'
 
 const ExperienceLayout = () => {
-  const allWorks = useExperiences((state) => state.experiences);
-  const removeExperience = useExperiences.getState().remove;
-  const onMoveUp = useExperiences.getState().onmoveup;
-  const onMoveDown = useExperiences.getState().onmovedown;
+  const allWorks = useExperiences((state) => state.experiences)
+  const removeExperience = useExperiences.getState().remove
+  const onMoveUp = useExperiences.getState().onmoveup
+  const onMoveDown = useExperiences.getState().onmovedown
 
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const [expanded, setExpanded] = useState<string | false>(false)
 
   useEffect(() => {
-    setExpanded(allWorks[0]?.id);
+    setExpanded(allWorks[0]?.id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   const handleChange = (panel: string, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+    setExpanded(isExpanded ? panel : false)
+  }
 
   return (
     <div className="flex flex-col gap-8 mb-8">
@@ -41,7 +41,7 @@ const ExperienceLayout = () => {
       ))}
       <AddExperience handleChange={handleChange} isEmpty={allWorks.length === 0} />
     </div>
-  );
-};
+  )
+}
 
-export default ExperienceLayout;
+export default ExperienceLayout

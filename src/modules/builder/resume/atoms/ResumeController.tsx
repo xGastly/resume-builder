@@ -1,15 +1,15 @@
-import Image from 'next/image';
-import { ReactNode } from 'react';
-import Tooltip from '@mui/material/Tooltip';
+import Tooltip from '@mui/material/Tooltip'
+import Image from 'next/image'
+import { ReactNode } from 'react'
 
 const ResumeController = ({
   zoomIn,
   zoomOut,
   resetZoom,
 }: {
-  zoomIn: () => void;
-  zoomOut: () => void;
-  resetZoom: () => void;
+  zoomIn: () => void
+  zoomOut: () => void
+  resetZoom: () => void
 }) => {
   return (
     <div className="flex">
@@ -46,15 +46,15 @@ const ResumeController = ({
         </TooltipRenderer>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ResumeController;
+export default ResumeController
 
 function TooltipRenderer({ title, children }: { title: string; children: ReactNode }) {
   return (
     <Tooltip title={title}>
       <div className="w-auto h-auto flex">{children}</div>
     </Tooltip>
-  );
+  )
 }

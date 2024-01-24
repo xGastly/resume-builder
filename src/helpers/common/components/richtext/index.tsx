@@ -1,26 +1,26 @@
-import { useRef, useEffect, memo, useState } from 'react';
-import 'jodit/build/jodit.min.css';
+import 'jodit/build/jodit.min.css'
+import { memo, useEffect, useRef, useState } from 'react'
 
-import { LinkPlugin } from './plugins/link';
+import { LinkPlugin } from './plugins/link'
 
-import styles from './jodit.module.css';
+import styles from './jodit.module.css'
 
 interface IRichtext {
-  label: string;
-  onChange: (htmlOutput: string) => void;
-  value: string;
-  name: string;
+  label: string
+  onChange: (htmlOutput: string) => void
+  value: string
+  name: string
 }
 
 export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
-  const editorContainerRef = useRef<HTMLTextAreaElement | null>(null);
-  const editorRef = useRef<any>(null);
-  const [editorInstanceCreated, setEditorInstanceCreated] = useState(false);
+  const editorContainerRef = useRef<HTMLTextAreaElement | null>(null)
+  const editorRef = useRef<any>(null)
+  const [editorInstanceCreated, setEditorInstanceCreated] = useState(false)
 
   useEffect(() => {
     if (editorContainerRef.current) {
       const initEditor = async () => {
-        const { Jodit } = await import('jodit');
+        const { Jodit } = await import('jodit')
         const editor = Jodit.make(editorContainerRef.current as HTMLTextAreaElement, {
           showCharsCounter: false,
           showWordsCounter: false,
@@ -34,27 +34,27 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
           defaultActionOnPaste: 'insert_only_text',
           maxHeight: 200,
           link: LinkPlugin,
-        });
-        editor.value = value;
-        editorRef.current = editor;
-        setEditorInstanceCreated(true);
-      };
-      initEditor();
+        })
+        editor.value = value
+        editorRef.current = editor
+        setEditorInstanceCreated(true)
+      }
+      initEditor()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   useEffect(() => {
     if (editorRef.current && editorInstanceCreated) {
-      editorRef.current.value = value;
+      editorRef.current.value = value
     }
-  }, [value, editorInstanceCreated]);
+  }, [value, editorInstanceCreated])
 
   useEffect(() => {
     if (editorRef.current && editorInstanceCreated) {
-      editorRef.current.events.on('change', onChange);
+      editorRef.current.events.on('change', onChange)
     }
-  }, [onChange, editorInstanceCreated]);
+  }, [onChange, editorInstanceCreated])
 
   return (
     <div className={`${styles.editor_wrapper} mb-4`}>
@@ -71,7 +71,7 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
         className={`min-h-[200px] min-w-full bg-[rgba(0,0,0,0.06)]`}
       ></textarea>
     </div>
-  );
-});
+  )
+})
 
-RichtextEditor.displayName = 'RichtextEditor';
+RichtextEditor.displayName = 'RichtextEditor'

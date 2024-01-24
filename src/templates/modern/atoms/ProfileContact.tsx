@@ -3,5 +3,5 @@ export const ProfileContact = ({ text }: { text: string }) => {
     <div>
       <p className="text-sm font-normal">{text}</p>
     </div>
-  );
-};
+  )
+}

@@ -1,11 +1,11 @@
-import { ISkillItem } from 'src/stores/skill.interface';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
+import { ISkillItem } from 'src/stores/skill.interface'
 
 const ProgressBar = styled.div`
   width: ${(props: { level: number }) => props.level}%;
   height: 6px;
   background-color: ${(props) => props.theme.highlighterColor};
-`;
+`
 
 export default function RatedSkills({ items }: { items: ISkillItem[] }) {
   return (
@@ -19,5 +19,5 @@ export default function RatedSkills({ items }: { items: ISkillItem[] }) {
         </div>
       ))}
     </div>
-  );
+  )
 }

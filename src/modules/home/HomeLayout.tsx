@@ -1,27 +1,27 @@
-import { NavBarActions, StyledButton } from '../builder/nav-bar/atoms';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion'
+import { NavBarActions, StyledButton } from '../builder/nav-bar/atoms'
 
-import { BsGithub } from 'react-icons/bs';
-import { Button } from '@mui/material';
-import FeatureSection from './components/Feature';
-import Image from 'next/image';
-import Link from 'next/link';
-import Person from './components/Person';
-import Navbar from 'src/helpers/common/Navbar';
+import { Button } from '@mui/material'
+import Image from 'next/image'
+import Link from 'next/link'
+import { BsGithub } from 'react-icons/bs'
+import Navbar from 'src/helpers/common/Navbar'
+import FeatureSection from './components/Feature'
+import Person from './components/Person'
 
 const HomeLayout = () => {
-  const controls = useAnimation();
-  const animationEffectsHoverEnter = { scale: 1.05 };
-  const animationEffectsHoverLeave = { scale: 1 };
+  const controls = useAnimation()
+  const animationEffectsHoverEnter = { scale: 1.05 }
+  const animationEffectsHoverLeave = { scale: 1 }
   const animationEffectsFirstLoad = {
     scale: [0.9, 1],
     opacity: [0, 1],
-  };
+  }
   const transtionEffects = {
     type: 'spring',
     stiffness: 400,
     damping: 17,
-  };
+  }
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: [0, 1] }} className="scroll-smooth">
@@ -46,10 +46,10 @@ const HomeLayout = () => {
                 alt="resume-3d"
                 className="w-6/12 sm:w-9/12"
                 onMouseEnter={() => {
-                  controls.start(animationEffectsHoverEnter, transtionEffects);
+                  controls.start(animationEffectsHoverEnter, transtionEffects)
                 }}
                 onMouseLeave={() => {
-                  controls.start(animationEffectsHoverLeave, transtionEffects);
+                  controls.start(animationEffectsHoverLeave, transtionEffects)
                 }}
                 animate={controls}
               />
@@ -107,7 +107,7 @@ const HomeLayout = () => {
         </div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default HomeLayout;
+export default HomeLayout

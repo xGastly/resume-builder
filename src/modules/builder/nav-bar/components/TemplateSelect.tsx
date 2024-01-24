@@ -1,8 +1,8 @@
-import { Divider, styled, alpha } from '@mui/material';
-import Link from '@mui/material/Link';
-import { OutlinedButton } from 'src/helpers/common/atoms/Buttons';
+import { Divider, alpha, styled } from '@mui/material'
+import Link from '@mui/material/Link'
+import { OutlinedButton } from 'src/helpers/common/atoms/Buttons'
 
-import { TemplateSlider } from './TemplatesSlider';
+import { TemplateSlider } from './TemplatesSlider'
 
 export const StyledLink = styled(Link)(({ theme }) => ({
   color: theme.palette.resume[800],
@@ -11,7 +11,7 @@ export const StyledLink = styled(Link)(({ theme }) => ({
     borderColor: theme.palette.resume[800],
     backgroundColor: alpha(theme.palette.resume[800], 0.04),
   },
-}));
+}))
 
 export const TemplateSelect = () => {
   return (
@@ -31,5 +31,5 @@ export const TemplateSelect = () => {
         </OutlinedButton>
       </div> */}
     </div>
-  );
-};
+  )
+}

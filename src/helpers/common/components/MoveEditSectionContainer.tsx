@@ -1,6 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { Fragment } from 'react';
+import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
+import { Fragment } from 'react'
 
 const animation = {
   exit: {
@@ -9,7 +9,7 @@ const animation = {
     paddingBottom: 0,
     opacity: 0,
   },
-};
+}
 
 const MoveEditSection = ({
   title,
@@ -22,15 +22,15 @@ const MoveEditSection = ({
   onMoveDown,
   onDelete,
 }: {
-  title: string;
-  expanded: boolean;
-  clickHandler: () => void;
-  children: JSX.Element;
-  length: number;
-  index: number;
-  onMoveUp: (index: number) => void;
-  onMoveDown: (index: number) => void;
-  onDelete: (index: number) => void;
+  title: string
+  expanded: boolean
+  clickHandler: () => void
+  children: JSX.Element
+  length: number
+  index: number
+  onMoveUp: (index: number) => void
+  onMoveDown: (index: number) => void
+  onDelete: (index: number) => void
 }) => {
   return (
     <div className="shadow-sm rounded-lg">
@@ -52,8 +52,8 @@ const MoveEditSection = ({
                 height={16}
                 alt="up-arrow"
                 onClick={(event: React.MouseEvent) => {
-                  event.stopPropagation();
-                  onMoveUp(index);
+                  event.stopPropagation()
+                  onMoveUp(index)
                 }}
               />
               <Image
@@ -62,8 +62,8 @@ const MoveEditSection = ({
                 height={16}
                 alt="down-arrow"
                 onClick={(event: React.MouseEvent) => {
-                  event.stopPropagation();
-                  onMoveDown(index);
+                  event.stopPropagation()
+                  onMoveDown(index)
                 }}
               />
             </Fragment>
@@ -74,8 +74,8 @@ const MoveEditSection = ({
             height={18}
             alt="delete"
             onClick={(event: React.MouseEvent) => {
-              event.stopPropagation();
-              onDelete(index);
+              event.stopPropagation()
+              onDelete(index)
             }}
           />
         </div>
@@ -91,7 +91,7 @@ const MoveEditSection = ({
         )}
       </AnimatePresence>
     </div>
-  );
-};
+  )
+}
 
-export default MoveEditSection;
+export default MoveEditSection

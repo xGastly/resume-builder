@@ -1,22 +1,22 @@
 // eslint-disable-next-line import/no-unresolved
-import '@splidejs/splide/css';
+import '@splidejs/splide/css'
 
-import Splide, { Splide as SplideCore } from '@splidejs/splide';
-import { useEffect, useRef } from 'react';
+import Splide, { Splide as SplideCore } from '@splidejs/splide'
+import { useEffect, useRef } from 'react'
 
-import { AVAILABLE_TEMPLATES } from 'src/helpers/constants';
-import { Global } from '@emotion/react';
-import Image from 'next/image';
-import { useTemplates } from 'src/stores/useTemplate';
+import { Global } from '@emotion/react'
+import Image from 'next/image'
+import { AVAILABLE_TEMPLATES } from 'src/helpers/constants'
+import { useTemplates } from 'src/stores/useTemplate'
 
 export const TemplateSlider = () => {
-  const templateIndex = useTemplates((state) => state.activeTemplate.id);
+  const templateIndex = useTemplates((state) => state.activeTemplate.id)
 
-  const targetElementRef = useRef<HTMLElement | null>(null);
-  const splideInstanceRef = useRef<Splide | null>(null);
+  const targetElementRef = useRef<HTMLElement | null>(null)
+  const splideInstanceRef = useRef<Splide | null>(null)
 
   useEffect(() => {
-    const targetElement = targetElementRef.current;
+    const targetElement = targetElementRef.current
     if (targetElement) {
       splideInstanceRef.current = new SplideCore(targetElement, {
         perPage: 2,
@@ -25,19 +25,19 @@ export const TemplateSlider = () => {
         width: '100%',
         autoHeight: true,
         perMove: 1,
-      });
+      })
 
-      splideInstanceRef.current.mount();
+      splideInstanceRef.current.mount()
     }
 
     return () => {
-      splideInstanceRef.current && splideInstanceRef.current.destroy();
-    };
-  }, []);
+      splideInstanceRef.current && splideInstanceRef.current.destroy()
+    }
+  }, [])
 
   const onChangeTemplate = (templateId: string) => {
-    useTemplates.getState().setTemplate(AVAILABLE_TEMPLATES[templateId]);
-  };
+    useTemplates.getState().setTemplate(AVAILABLE_TEMPLATES[templateId])
+  }
 
   return (
     <div>
@@ -64,8 +64,8 @@ export const TemplateSlider = () => {
         <div className="splide__track">
           <ul className="splide__list">
             {Object.keys(AVAILABLE_TEMPLATES).map((templateKey) => {
-              const template = AVAILABLE_TEMPLATES[templateKey];
-              const isActive = template.id === templateIndex;
+              const template = AVAILABLE_TEMPLATES[templateKey]
+              const isActive = template.id === templateIndex
               return (
                 <TemplateSlide
                   key={template.id}
@@ -73,14 +73,14 @@ export const TemplateSlider = () => {
                   {...template}
                   onChangeTemplate={onChangeTemplate}
                 />
-              );
+              )
             })}
           </ul>
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
 export const TemplateSlide = ({
   isActive,
@@ -89,11 +89,11 @@ export const TemplateSlide = ({
   thumbnail,
   onChangeTemplate,
 }: {
-  isActive: boolean;
-  id: string;
-  name: string;
-  thumbnail: string;
-  onChangeTemplate: (id: string) => void;
+  isActive: boolean
+  id: string
+  name: string
+  thumbnail: string
+  onChangeTemplate: (id: string) => void
 }) => {
   return (
     <li className="splide__slide flex justify-center">
@@ -102,7 +102,7 @@ export const TemplateSlide = ({
           isActive ? 'border-resume-800' : 'border-resume-200'
         }`}
         onClick={() => {
-          onChangeTemplate(id);
+          onChangeTemplate(id)
         }}
       >
         <Image src={thumbnail} alt={name} layout="fill" />
@@ -114,5 +114,5 @@ export const TemplateSlide = ({
         )}
       </div>
     </li>
-  );
-};
+  )
+}

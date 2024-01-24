@@ -1,10 +1,10 @@
-import Snackbar from '@mui/material/Snackbar';
-import Slide, { SlideProps } from '@mui/material/Slide';
+import Slide, { SlideProps } from '@mui/material/Slide'
+import Snackbar from '@mui/material/Snackbar'
 
-type TransitionProps = Omit<SlideProps, 'direction'>;
+type TransitionProps = Omit<SlideProps, 'direction'>
 
 function TransitionUp(props: TransitionProps) {
-  return <Slide {...props} direction="up" />;
+  return <Slide {...props} direction="up" />
 }
 
 export const Toast = ({
@@ -12,18 +12,18 @@ export const Toast = ({
   onClose,
   content,
 }: {
-  open: boolean;
-  onClose: () => void;
-  content: string;
+  open: boolean
+  onClose: () => void
+  content: string
 }) => (
   <Snackbar
     open={open}
     autoHideDuration={4000}
     onClose={(event, reason) => {
       if (reason === 'clickaway') {
-        return;
+        return
       }
-      onClose();
+      onClose()
     }}
     TransitionComponent={TransitionUp}
   >
@@ -31,4 +31,4 @@ export const Toast = ({
       <span className="text-white text-sm">{content}</span>
     </div>
   </Snackbar>
-);
+)

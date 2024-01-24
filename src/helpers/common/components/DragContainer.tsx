@@ -1,44 +1,44 @@
 import {
   DndContext,
-  closestCenter,
+  DragEndEvent,
   KeyboardSensor,
   PointerSensor,
+  closestCenter,
   useSensor,
   useSensors,
-  DragEndEvent,
-} from '@dnd-kit/core';
+} from '@dnd-kit/core'
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
 import {
-  arrayMove,
   SortableContext,
+  arrayMove,
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
-} from '@dnd-kit/sortable';
-import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
-import { ISkillItem } from 'src/stores/skill.interface';
+} from '@dnd-kit/sortable'
+import { ISkillItem } from 'src/stores/skill.interface'
 
 export default function DragContainer({
   items,
   setItems,
   children,
 }: {
-  items: ISkillItem[];
-  setItems: (v: ISkillItem[]) => void;
-  children: JSX.Element | JSX.Element[];
+  items: ISkillItem[]
+  setItems: (v: ISkillItem[]) => void
+  children: JSX.Element | JSX.Element[]
 }) {
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     })
-  );
+  )
 
   function handleDragEnd(event: DragEndEvent) {
-    const { active, over } = event;
+    const { active, over } = event
 
     if (over && active.id !== over.id) {
-      const oldIndex = items.findIndex((item) => item.name === active.id);
-      const newIndex = items.findIndex((item) => item.name === over.id);
-      setItems(arrayMove(items, oldIndex, newIndex));
+      const oldIndex = items.findIndex((item) => item.name === active.id)
+      const newIndex = items.findIndex((item) => item.name === over.id)
+      setItems(arrayMove(items, oldIndex, newIndex))
     }
   }
 
@@ -53,5 +53,5 @@ export default function DragContainer({
         {children}
       </SortableContext>
     </DndContext>
-  );
+  )
 }

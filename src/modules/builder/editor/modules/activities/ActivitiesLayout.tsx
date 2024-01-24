@@ -1,17 +1,17 @@
-import { Fragment, useState, SyntheticEvent } from 'react';
-import BasicHeader from './components/BasicHeader';
-import BasicPanel from './components/BasicPanel';
-import Achievements from './components/Achievements';
-import Involvements from './components/Involvements';
+import { Fragment, SyntheticEvent, useState } from 'react'
+import Achievements from './components/Achievements'
+import BasicHeader from './components/BasicHeader'
+import BasicPanel from './components/BasicPanel'
+import Involvements from './components/Involvements'
 
 export interface IActivityTab {
-  key: string;
-  label: string;
-  component: () => JSX.Element;
+  key: string
+  label: string
+  component: () => JSX.Element
 }
 
 export interface IAllActivityTabs {
-  [key: string]: IActivityTab;
+  [key: string]: IActivityTab
 }
 
 const allActivityTabs: IAllActivityTabs = {
@@ -25,17 +25,17 @@ const allActivityTabs: IAllActivityTabs = {
     label: 'Achievements',
     component: Achievements,
   },
-};
+}
 
 const ActivitiesLayout = () => {
-  const [activeTab, setActiveTab] = useState(allActivityTabs['involvements']);
+  const [activeTab, setActiveTab] = useState(allActivityTabs['involvements'])
 
   const changeActiveTab = (event: SyntheticEvent, key: string) => {
-    const selectedTab = allActivityTabs[key];
+    const selectedTab = allActivityTabs[key]
     if (selectedTab) {
-      setActiveTab(selectedTab);
+      setActiveTab(selectedTab)
     }
-  };
+  }
 
   return (
     <Fragment>
@@ -46,7 +46,7 @@ const ActivitiesLayout = () => {
       ></BasicHeader>
       <BasicPanel activeTab={activeTab} />
     </Fragment>
-  );
-};
+  )
+}
 
-export default ActivitiesLayout;
+export default ActivitiesLayout

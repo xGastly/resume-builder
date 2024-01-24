@@ -1,16 +1,16 @@
-import React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import { IAllActivityTabs, IActivityTab } from '../ActivitiesLayout';
+import Tab from '@mui/material/Tab'
+import Tabs from '@mui/material/Tabs'
+import React from 'react'
+import { IActivityTab, IAllActivityTabs } from '../ActivitiesLayout'
 
 const BasicHeader = ({
   activeTab,
   changeActiveTab,
   tabs,
 }: {
-  activeTab: IActivityTab;
-  changeActiveTab: (event: React.SyntheticEvent, key: string) => void;
-  tabs: IAllActivityTabs;
+  activeTab: IActivityTab
+  changeActiveTab: (event: React.SyntheticEvent, key: string) => void
+  tabs: IAllActivityTabs
 }) => {
   return (
     <Tabs value={activeTab.key} onChange={changeActiveTab} variant="fullWidth">
@@ -27,7 +27,7 @@ const BasicHeader = ({
         />
       ))}
     </Tabs>
-  );
-};
+  )
+}
 
-export default BasicHeader;
+export default BasicHeader

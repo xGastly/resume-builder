@@ -1,13 +1,13 @@
-import Image from 'next/image';
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import { motion } from 'framer-motion';
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const animation = {
   initial: { y: 25, opacity: 0 },
   animate: { y: 0, opacity: 1 },
   exit: { height: 0, padding: 0, opacity: 0, transition: { duration: 0.15 } },
-};
+}
 
 const SkillPill = ({
   index,
@@ -16,20 +16,20 @@ const SkillPill = ({
   onDelete,
   showLevel,
 }: {
-  index: number;
-  name: string;
-  level?: number;
-  onDelete: (index: number) => void;
-  showLevel: boolean;
+  index: number
+  name: string
+  level?: number
+  onDelete: (index: number) => void
+  showLevel: boolean
 }) => {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
     id: name,
-  });
+  })
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-  };
+  }
 
   return (
     <motion.div
@@ -63,7 +63,7 @@ const SkillPill = ({
         </button>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default SkillPill;
+export default SkillPill

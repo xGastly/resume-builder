@@ -3,18 +3,6 @@ const nextConfig = {
   // output: 'export',
 
   reactStrictMode: true,
-  eslint: {
-    dirs: [
-      'stories',
-      'src/__test__',
-      'src/common',
-      'src/helpers',
-      'src/modules',
-      'src/pages',
-      'src/styles',
-      'src/templates',
-    ],
-  },
   images: {
     domains: ['avatars.githubusercontent.com'],
     // unoptimized: true,
@@ -26,8 +14,8 @@ const nextConfig = {
         destination: '/builder',
         permanent: true,
       },
-    ];
+    ]
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

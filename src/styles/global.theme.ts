@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles'
 
 export const GLOBAL_MUI_THEME = createTheme({
   palette: {
@@ -38,15 +38,15 @@ export const GLOBAL_MUI_THEME = createTheme({
       },
     },
   },
-});
+})
 
 declare module '@mui/material/styles' {
   interface Palette {
-    resume: Palette['grey'];
+    resume: Palette['grey']
   }
 
   // allow configuration using `createTheme`
   interface PaletteOptions {
-    resume?: PaletteOptions['grey'];
+    resume?: PaletteOptions['grey']
   }
 }

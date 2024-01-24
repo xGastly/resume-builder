@@ -1,17 +1,17 @@
-import { BasicIntro } from './components/BasicIntro';
-import { EducationSection } from './components/Education';
-import { VolunteerSection } from './components/Volunteer';
-import { Objective } from './components/Objective';
-import { SkillsSection } from './components/Skills';
-import { SummarySection } from './components/Summary';
-import { WorkSection } from './components/Work';
-import { AwardSection } from './components/Awards';
-import { useContext } from 'react';
-import { StateContext } from 'src/modules/builder/resume/ResumeLayout';
-import { SectionValidator } from 'src/helpers/common/components/ValidSectionRenderer';
+import { useContext } from 'react'
+import { SectionValidator } from 'src/helpers/common/components/ValidSectionRenderer'
+import { StateContext } from 'src/modules/builder/resume/ResumeLayout'
+import { AwardSection } from './components/Awards'
+import { BasicIntro } from './components/BasicIntro'
+import { EducationSection } from './components/Education'
+import { Objective } from './components/Objective'
+import { SkillsSection } from './components/Skills'
+import { SummarySection } from './components/Summary'
+import { VolunteerSection } from './components/Volunteer'
+import { WorkSection } from './components/Work'
 
 export default function MordernTemplate() {
-  const resumeData = useContext(StateContext);
+  const resumeData = useContext(StateContext)
 
   return (
     <div className="p-2">
@@ -70,5 +70,5 @@ export default function MordernTemplate() {
         </div>
       </div>
     </div>
-  );
+  )
 }

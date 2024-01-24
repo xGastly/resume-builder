@@ -1,5 +1,5 @@
-import { IEducation } from 'src/stores/index.interface';
-import { dateParser } from 'src/helpers/utils';
+import { dateParser } from 'src/helpers/utils'
+import { IEducation } from 'src/stores/index.interface'
 
 export const Education = ({ education }: { education: IEducation[] }) => {
   return (
@@ -22,8 +22,8 @@ export const Education = ({ education }: { education: IEducation[] }) => {
               </div>
             </div>
           </div>
-        );
+        )
       })}
     </>
-  );
-};
+  )
+}

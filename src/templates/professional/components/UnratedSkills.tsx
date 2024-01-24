@@ -1,9 +1,9 @@
-import { ISkillItem } from 'src/stores/skill.interface';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
+import { ISkillItem } from 'src/stores/skill.interface'
 
 const Badge = styled.span`
   border: 1px solid ${(props) => props.theme.highlighterColor};
-`;
+`
 
 export default function UnratedSkills({ items }: { items: ISkillItem[] }) {
   return (
@@ -14,5 +14,5 @@ export default function UnratedSkills({ items }: { items: ISkillItem[] }) {
         </Badge>
       ))}
     </div>
-  );
+  )
 }

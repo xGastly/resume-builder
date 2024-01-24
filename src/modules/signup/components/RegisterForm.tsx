@@ -1,14 +1,14 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import Router from 'next/router';
-import * as Yup from 'yup';
-import { Container, Paper, Typography, TextField, Button } from '@mui/material';
-import { setToken } from 'src/helpers/utils/helpers';
-import { useAuthContext } from 'src/helpers/context/AuthContext';
-import UserAPI from 'src/helpers/api/user';
+import { Button, Container, Paper, TextField, Typography } from '@mui/material'
+import { useFormik } from 'formik'
+import Router from 'next/router'
+import React from 'react'
+import UserAPI from 'src/helpers/api/user'
+import { useAuthContext } from 'src/helpers/context/AuthContext'
+import { setToken } from 'src/helpers/utils/helpers'
+import * as Yup from 'yup'
 
 const RegisterForm = () => {
-  const { setUser } = useAuthContext();
+  const { setUser } = useAuthContext()
 
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid email address').required('Email is required'),
@@ -16,7 +16,7 @@ const RegisterForm = () => {
     confirmPassword: Yup.string()
       .oneOf([Yup.ref('password'), ''], 'Passwords must match')
       .required('Confirm Password is required'),
-  });
+  })
 
   const formik = useFormik({
     initialValues: {
@@ -27,22 +27,22 @@ const RegisterForm = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        const emailParts = values.email.split('@');
-        const newUsername = emailParts[0];
-        const { data, status } = await UserAPI.register(newUsername, values.email, values.password);
+        const emailParts = values.email.split('@')
+        const newUsername = emailParts[0]
+        const { data, status } = await UserAPI.register(newUsername, values.email, values.password)
         if (status !== 200) {
         }
         if (data?.user) {
-          setToken(data.jwt);
-          setUser(data.user);
-          Router.push('/');
+          setToken(data.jwt)
+          setUser(data.user)
+          Router.push('/')
         }
       } catch (error) {
-        console.error(error);
+        console.error(error)
       } finally {
       }
     },
-  });
+  })
 
   return (
     <Container component="main" maxWidth="xs" className="pt-12">
@@ -101,7 +101,7 @@ const RegisterForm = () => {
         </form>
       </Paper>
     </Container>
-  );
-};
+  )
+}
 
-export default RegisterForm;
+export default RegisterForm

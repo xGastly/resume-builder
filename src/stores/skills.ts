@@ -1,31 +1,31 @@
-import create, { GetState, SetState } from 'zustand';
-import { persist } from 'zustand/middleware';
-import produce from 'immer';
-import { ISkillItem, ISkillState } from './skill.interface';
-import resumeData from 'src/helpers/constants/resume-data.json';
+import produce from 'immer'
+import resumeData from 'src/helpers/constants/resume-data.json'
+import create, { GetState, SetState } from 'zustand'
+import { persist } from 'zustand/middleware'
+import { ISkillItem, ISkillState } from './skill.interface'
 
 const addSkill =
   (set: SetState<ISkillState>) =>
   ({ name, level }: ISkillItem) =>
     set(
       produce((state: ISkillState) => {
-        state.values.push({ name, level });
+        state.values.push({ name, level })
       })
-    );
+    )
 
 const removeSkill = (set: SetState<ISkillState>) => (index: number) =>
   set(
     produce((state: ISkillState) => {
-      state.values.splice(index, 1);
+      state.values.splice(index, 1)
     })
-  );
+  )
 
-const setSkills = (set: SetState<ISkillState>) => (values: ISkillItem[]) => set(() => ({ values }));
+const setSkills = (set: SetState<ISkillState>) => (values: ISkillItem[]) => set(() => ({ values }))
 
-const getSkills = (get: GetState<ISkillState>) => () => get().isEnabled ? get().values : [];
+const getSkills = (get: GetState<ISkillState>) => () => (get().isEnabled ? get().values : [])
 
 const setIsEnabled = (set: SetState<ISkillState>) => (isEnabled: boolean) =>
-  set(() => ({ isEnabled }));
+  set(() => ({ isEnabled }))
 
 const getMethods = (set: SetState<ISkillState>, get: GetState<ISkillState>) => ({
   get: getSkills(get),
@@ -33,7 +33,7 @@ const getMethods = (set: SetState<ISkillState>, get: GetState<ISkillState>) => (
   remove: removeSkill(set),
   reset: setSkills(set),
   setIsEnabled: setIsEnabled(set),
-});
+})
 
 export const useLanguages = create<ISkillState>(
   persist(
@@ -47,7 +47,7 @@ export const useLanguages = create<ISkillState>(
     }),
     { name: 'languages' }
   )
-);
+)
 
 export const useFrameworks = create<ISkillState>(
   persist(
@@ -61,7 +61,7 @@ export const useFrameworks = create<ISkillState>(
     }),
     { name: 'frameworks' }
   )
-);
+)
 
 export const useTechnologies = create<ISkillState>(
   persist(
@@ -75,7 +75,7 @@ export const useTechnologies = create<ISkillState>(
     }),
     { name: 'technologies' }
   )
-);
+)
 
 export const useLibraries = create<ISkillState>(
   persist(
@@ -89,7 +89,7 @@ export const useLibraries = create<ISkillState>(
     }),
     { name: 'libraries' }
   )
-);
+)
 
 export const useDatabases = create<ISkillState>(
   persist(
@@ -103,7 +103,7 @@ export const useDatabases = create<ISkillState>(
     }),
     { name: 'databases' }
   )
-);
+)
 
 export const usePractices = create<ISkillState>(
   persist(
@@ -117,7 +117,7 @@ export const usePractices = create<ISkillState>(
     }),
     { name: 'practices' }
   )
-);
+)
 
 export const useTools = create<ISkillState>(
   persist(
@@ -131,4 +131,4 @@ export const useTools = create<ISkillState>(
     }),
     { name: 'tools' }
   )
-);
+)

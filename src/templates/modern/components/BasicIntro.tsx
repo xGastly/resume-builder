@@ -1,8 +1,8 @@
-import { BsGlobe } from 'react-icons/bs';
-import { ProfileContact } from '../atoms/ProfileContact';
-import { ProfileImage } from 'src/helpers/common/components/ProfileImage';
-import { ProfileName } from '../atoms/ProfileName';
-import { SectionSubtitle } from '../atoms/SectionSubtitle';
+import { BsGlobe } from 'react-icons/bs'
+import { ProfileImage } from 'src/helpers/common/components/ProfileImage'
+import { ProfileContact } from '../atoms/ProfileContact'
+import { ProfileName } from '../atoms/ProfileName'
+import { SectionSubtitle } from '../atoms/SectionSubtitle'
 
 export const BasicIntro = ({
   name,
@@ -13,13 +13,13 @@ export const BasicIntro = ({
   city,
   image,
 }: {
-  name: string;
-  label: string;
-  url: string;
-  email: string;
-  phone: string;
-  city: string;
-  image: string;
+  name: string
+  label: string
+  url: string
+  email: string
+  phone: string
+  city: string
+  image: string
 }) => {
   return (
     <div className="flex justify-between items-center p-2">
@@ -40,5 +40,5 @@ export const BasicIntro = ({
       </div>
       <ProfileImage src={image} height="100px" width="100px" />
     </div>
-  );
-};
+  )
+}

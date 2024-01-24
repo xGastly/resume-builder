@@ -1,12 +1,12 @@
-import { Divider } from '@mui/material';
-import { motion } from 'framer-motion';
-import { headers } from 'src/helpers/constants/editor-data';
-import HeaderTitle from '../atoms/HeaderTitle';
+import { Divider } from '@mui/material'
+import { motion } from 'framer-motion'
+import { headers } from 'src/helpers/constants/editor-data'
+import HeaderTitle from '../atoms/HeaderTitle'
 
 const animation = {
   initial: { x: -25, opacity: 0 },
   animate: { x: 0, opacity: 1 },
-};
+}
 
 const EditHeaders = ({ onLinkClick }: { onLinkClick: (link: string) => void }) => {
   return (
@@ -18,7 +18,7 @@ const EditHeaders = ({ onLinkClick }: { onLinkClick: (link: string) => void }) =
         </a>
       ))}
     </motion.div>
-  );
-};
+  )
+}
 
-export default EditHeaders;
+export default EditHeaders

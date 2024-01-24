@@ -1,6 +1,6 @@
-import Popover from '@mui/material/Popover';
+import Popover from '@mui/material/Popover'
 
-import { INavMenuPopoverProps } from './NavMenuPopover.interface';
+import { INavMenuPopoverProps } from './NavMenuPopover.interface'
 
 export const NavMenuPopover = ({
   isOpen,
@@ -26,5 +26,5 @@ export const NavMenuPopover = ({
     >
       {children}
     </Popover>
-  );
-};
+  )
+}

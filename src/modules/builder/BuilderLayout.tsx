@@ -1,10 +1,10 @@
-import EditorLayout from './editor/EditorLayout';
-import Image from 'next/image';
-import NavBarLayout from './nav-bar/NavBarLayout';
-import ResumeHeader from './resume/components/ResumeHeader';
-import { ResumeLayout } from './resume/ResumeLayout';
-import Tooltip from '@mui/material/Tooltip';
-import { resetResumeStore } from 'src/stores/useResumeStore';
+import Tooltip from '@mui/material/Tooltip'
+import Image from 'next/image'
+import { resetResumeStore } from 'src/stores/useResumeStore'
+import EditorLayout from './editor/EditorLayout'
+import NavBarLayout from './nav-bar/NavBarLayout'
+import { ResumeLayout } from './resume/ResumeLayout'
+import ResumeHeader from './resume/components/ResumeHeader'
 
 const BuilderLayout = () => {
   return (
@@ -37,7 +37,7 @@ const BuilderLayout = () => {
         </Tooltip>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default BuilderLayout;
+export default BuilderLayout

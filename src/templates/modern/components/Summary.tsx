@@ -1,6 +1,6 @@
-import { SectionHeading } from '../atoms/SectionHeading';
-import { SectionText } from '../atoms/SectionText';
-import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer';
+import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer'
+import { SectionHeading } from '../atoms/SectionHeading'
+import { SectionText } from '../atoms/SectionText'
 
 export const SummarySection = ({ summary }: { summary: string }) => {
   return (
@@ -10,5 +10,5 @@ export const SummarySection = ({ summary }: { summary: string }) => {
         <HTMLRenderer htmlString={summary} />
       </SectionText>
     </div>
-  );
-};
+  )
+}

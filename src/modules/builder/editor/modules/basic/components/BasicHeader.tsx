@@ -1,15 +1,15 @@
-import React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import Tab from '@mui/material/Tab'
+import Tabs from '@mui/material/Tabs'
+import React from 'react'
 
 const BasicHeader = ({
   activeTab,
   changeActiveTab,
   tabTitles,
 }: {
-  activeTab: number;
-  changeActiveTab: (event: React.SyntheticEvent, activeTab: number) => void;
-  tabTitles: string[];
+  activeTab: number
+  changeActiveTab: (event: React.SyntheticEvent, activeTab: number) => void
+  tabTitles: string[]
 }) => {
   return (
     <Tabs value={activeTab} onChange={changeActiveTab} variant="fullWidth">
@@ -25,7 +25,7 @@ const BasicHeader = ({
         />
       ))}
     </Tabs>
-  );
-};
+  )
+}
 
-export default BasicHeader;
+export default BasicHeader

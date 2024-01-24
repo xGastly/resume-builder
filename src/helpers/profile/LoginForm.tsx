@@ -1,53 +1,53 @@
-import Router from 'next/router';
-import React, { ChangeEvent, Fragment } from 'react';
-import UserAPI from 'src/helpers/api/user';
-import { TextField, Button, Container, Paper, Typography } from '@mui/material';
-import { motion, useAnimation } from 'framer-motion';
-import { setToken } from '../utils/helpers';
-import { useAuthContext } from '../context/AuthContext';
+import { Button, Container, Paper, TextField, Typography } from '@mui/material'
+import { motion, useAnimation } from 'framer-motion'
+import Router from 'next/router'
+import React, { ChangeEvent, Fragment } from 'react'
+import UserAPI from 'src/helpers/api/user'
+import { useAuthContext } from '../context/AuthContext'
+import { setToken } from '../utils/helpers'
 
 const LoginForm = () => {
-  const [isLoading, setLoading] = React.useState(false);
-  const [errors, setErrors] = React.useState([]);
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [isLoading, setLoading] = React.useState(false)
+  const [errors, setErrors] = React.useState([])
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
 
-  const { setUser } = useAuthContext();
+  const { setUser } = useAuthContext()
 
   const animationEffectsFirstLoad = {
     scale: [0.9, 1],
     opacity: [0, 1],
-  };
+  }
   const transtionEffects = {
     type: 'spring',
     stiffness: 400,
     damping: 17,
-  };
+  }
 
-  const handleEmailChange = React.useCallback((e) => setEmail(e.target.value), []);
-  const handlePasswordChange = React.useCallback((e) => setPassword(e.target.value), []);
+  const handleEmailChange = React.useCallback((e) => setEmail(e.target.value), [])
+  const handlePasswordChange = React.useCallback((e) => setPassword(e.target.value), [])
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setLoading(true)
 
     try {
-      const { data, status } = await UserAPI.login(email, password);
+      const { data, status } = await UserAPI.login(email, password)
       if (status !== 200) {
-        setErrors(data.errors);
+        setErrors(data.errors)
       }
 
       if (data?.user) {
-        setToken(data.jwt);
-        setUser(data.user);
-        Router.push('/');
+        setToken(data.jwt)
+        setUser(data.user)
+        Router.push('/')
       }
     } catch (error) {
-      console.error(error);
+      console.error(error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <Container component="main" maxWidth="xs" className="pt-12">
@@ -85,7 +85,7 @@ const LoginForm = () => {
         </form>
       </Paper>
     </Container>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

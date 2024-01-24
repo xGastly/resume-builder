@@ -6,5 +6,5 @@ export const ProfileName = ({ name }: { name: string }) => {
     >
       {name}
     </h3>
-  );
-};
+  )
+}

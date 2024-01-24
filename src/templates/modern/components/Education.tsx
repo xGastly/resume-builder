@@ -1,8 +1,8 @@
-import { IEducation } from 'src/stores/index.interface';
-import { SectionHeading } from '../atoms/SectionHeading';
-import { SectionSubtitle } from '../atoms/SectionSubtitle';
-import { SectionTitle } from '../atoms/SectionTitle';
-import { dateParser } from 'src/helpers/utils';
+import { dateParser } from 'src/helpers/utils'
+import { IEducation } from 'src/stores/index.interface'
+import { SectionHeading } from '../atoms/SectionHeading'
+import { SectionSubtitle } from '../atoms/SectionSubtitle'
+import { SectionTitle } from '../atoms/SectionTitle'
 
 export const EducationSection = ({ education }: { education: IEducation[] }) => {
   return (
@@ -26,8 +26,8 @@ export const EducationSection = ({ education }: { education: IEducation[] }) => 
               </div>
             </div>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}

@@ -1,6 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion'
 
-import Image from 'next/image';
+import Image from 'next/image'
 
 const animation = {
   exit: {
@@ -9,10 +9,10 @@ const animation = {
     paddingBottom: 0,
     opacity: 0,
   },
-};
+}
 
 const nonEditableStyle =
-  "opacity-60 after:content-[''] after:absolute after:h-full after:w-full after:top-0 after:left-0 after:cursor-not-allowed";
+  "opacity-60 after:content-[''] after:absolute after:h-full after:w-full after:top-0 after:left-0 after:cursor-not-allowed"
 
 const EditSectionContainer = ({
   title,
@@ -22,17 +22,17 @@ const EditSectionContainer = ({
   setIsEnabled,
   children,
 }: {
-  title: string;
-  expanded: boolean;
-  clickHandler: () => void;
-  isEnabled: boolean;
-  setIsEnabled: (enabled: boolean) => void;
-  children: JSX.Element;
+  title: string
+  expanded: boolean
+  clickHandler: () => void
+  isEnabled: boolean
+  setIsEnabled: (enabled: boolean) => void
+  children: JSX.Element
 }) => {
   const toggleVisibility = (e: React.MouseEvent) => {
-    setIsEnabled(!isEnabled);
-    e.stopPropagation();
-  };
+    setIsEnabled(!isEnabled)
+    e.stopPropagation()
+  }
 
   return (
     <div className="shadow-sm rounded-lg">
@@ -64,7 +64,7 @@ const EditSectionContainer = ({
         )}
       </AnimatePresence>
     </div>
-  );
-};
+  )
+}
 
-export default EditSectionContainer;
+export default EditSectionContainer

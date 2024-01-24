@@ -1,14 +1,14 @@
-import { ISkillItem } from 'src/stores/skill.interface';
-import AddSkill from './AddSkill';
-import SkillPill from '../atoms/SkillPill';
-import DragContainer from 'src/helpers/common/components/DragContainer';
-import { motion } from 'framer-motion';
-import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
+import DragContainer from 'src/helpers/common/components/DragContainer'
+import { ISkillItem } from 'src/stores/skill.interface'
+import SkillPill from '../atoms/SkillPill'
+import AddSkill from './AddSkill'
 
 const animation = {
   initial: { height: '1px' },
   animate: { height: '100%' },
-};
+}
 
 export default function Skill({
   items,
@@ -17,11 +17,11 @@ export default function Skill({
   setItems,
   hasLevel,
 }: {
-  items: ISkillItem[];
-  addItem: ({ name, level }: ISkillItem) => void;
-  removeItem: (index: number) => void;
-  setItems: (name: ISkillItem[]) => void;
-  hasLevel: boolean;
+  items: ISkillItem[]
+  addItem: ({ name, level }: ISkillItem) => void
+  removeItem: (index: number) => void
+  setItems: (name: ISkillItem[]) => void
+  hasLevel: boolean
 }) {
   return (
     <>
@@ -47,5 +47,5 @@ export default function Skill({
       </motion.div>
       <AddSkill addHandler={addItem} items={items} hasLevel={hasLevel} />
     </>
-  );
+  )
 }

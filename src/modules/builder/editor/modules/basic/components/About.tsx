@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import { RichtextEditor } from 'src/helpers/common/components/richtext';
+import React, { Fragment } from 'react'
+import { RichtextEditor } from 'src/helpers/common/components/richtext'
 
 const About = ({
   basicTabs,
   onChangeHandler,
 }: {
-  basicTabs: any;
-  onChangeHandler: (value: any, key: string) => void;
+  basicTabs: any
+  onChangeHandler: (value: any, key: string) => void
 }) => {
   return (
     <Fragment>
@@ -14,7 +14,7 @@ const About = ({
         label="About me"
         value={basicTabs.summary}
         onChange={(htmlOutput) => {
-          onChangeHandler(htmlOutput, 'summary');
+          onChangeHandler(htmlOutput, 'summary')
         }}
         name="summary"
       />
@@ -22,12 +22,12 @@ const About = ({
         label="Career objective"
         value={basicTabs.objective}
         onChange={(htmlOutput) => {
-          onChangeHandler(htmlOutput, 'objective');
+          onChangeHandler(htmlOutput, 'objective')
         }}
         name="objective"
       />
     </Fragment>
-  );
-};
+  )
+}
 
-export default About;
+export default About

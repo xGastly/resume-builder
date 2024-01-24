@@ -1,5 +1,5 @@
-import { ColorBox } from './ColorBox';
-import { ColorBoxWrapper } from './ColorBoxWrapper';
+import { ColorBox } from './ColorBox'
+import { ColorBoxWrapper } from './ColorBoxWrapper'
 
 export const ColorDetails = ({ label, bgColor }: { label: string; bgColor: string }) => {
   return (
@@ -9,5 +9,5 @@ export const ColorDetails = ({ label, bgColor }: { label: string; bgColor: strin
       </ColorBoxWrapper>
       <span className="text-sm text-resume-800">{label}</span>
     </div>
-  );
-};
+  )
+}

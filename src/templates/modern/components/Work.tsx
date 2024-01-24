@@ -1,10 +1,10 @@
-import { dateParser } from 'src/helpers/utils';
-import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer';
-import { IWorkIntrf } from 'src/stores/index.interface';
-import { SectionHeading } from '../atoms/SectionHeading';
-import { SectionList } from '../atoms/SectionList';
-import { SectionSubtitle } from '../atoms/SectionSubtitle';
-import { SectionTitle } from '../atoms/SectionTitle';
+import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer'
+import { dateParser } from 'src/helpers/utils'
+import { IWorkIntrf } from 'src/stores/index.interface'
+import { SectionHeading } from '../atoms/SectionHeading'
+import { SectionList } from '../atoms/SectionList'
+import { SectionSubtitle } from '../atoms/SectionSubtitle'
+import { SectionTitle } from '../atoms/SectionTitle'
 
 export const WorkSection = ({ experience }: { experience: IWorkIntrf[] }) => {
   return (
@@ -29,8 +29,8 @@ export const WorkSection = ({ experience }: { experience: IWorkIntrf[] }) => {
               <HTMLRenderer htmlString={item.summary} />
             </SectionList>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}

@@ -1,15 +1,13 @@
-import type { IJodit } from 'jodit/types';
-import styles from '../jodit.module.css';
+import type { IJodit } from 'jodit/types'
+import styles from '../jodit.module.css'
 
 const linkFormOverride = (editor: IJodit) => {
-  const i18n = editor.i18n.bind(editor);
+  const i18n = editor.i18n.bind(editor)
 
   return `<form class="jodit_form">
   <div class="${styles.jodit_form_group}">
      <label class="${styles['jodit-input-label']}" for="url">URL</label>
-     <input ref="url_input" class="${
-       styles.jodit_input
-     }" required type="text" id="url" name="url" placeholder="http://" type="text"/>
+     <input ref="url_input" class="${styles.jodit_input}" required type="text" id="url" name="url" placeholder="http://" type="text"/>
   </div>
   <div ref="content_input_box" class="${styles.jodit_form_group}">
      <label class="${styles['jodit-input-label']}" for="text">Text</label>
@@ -27,17 +25,17 @@ const linkFormOverride = (editor: IJodit) => {
   </label>
   <div class="${styles.jodit_buttons}">
      <button ref="unlink" class="${styles.jodit_button} ${
-    styles.jodit_unlink_button
-  }" type="button">${i18n('Unlink')}</button>
+       styles.jodit_unlink_button
+     }" type="button">${i18n('Unlink')}</button>
      <button ref="insert" class="${styles.jodit_button} ${
-    styles.jodit_link_insert_button
-  }" type="submit">${i18n('Insert')}</button>
+       styles.jodit_link_insert_button
+     }" type="submit">${i18n('Insert')}</button>
   </div>
-  <form/>`;
-};
+  <form/>`
+}
 
 export const LinkPlugin = {
   formTemplate: linkFormOverride,
   noFollowCheckbox: false,
   openInNewTabCheckbox: false,
-};
+}

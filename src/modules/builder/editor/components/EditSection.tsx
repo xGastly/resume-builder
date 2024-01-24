@@ -1,17 +1,17 @@
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const animation = {
   initial: { x: 25, opacity: 0 },
   animate: { x: 0, opacity: 1 },
-};
+}
 
 interface IEditSection {
   section: {
-    title: string;
-    component: () => JSX.Element;
-  };
-  onLinkClick: (link: string) => void;
+    title: string
+    component: () => JSX.Element
+  }
+  onLinkClick: (link: string) => void
 }
 
 const EditSection = ({ section, onLinkClick }: IEditSection) => {
@@ -25,7 +25,7 @@ const EditSection = ({ section, onLinkClick }: IEditSection) => {
       </div>
       <section.component />
     </motion.div>
-  );
-};
+  )
+}
 
-export default EditSection;
+export default EditSection

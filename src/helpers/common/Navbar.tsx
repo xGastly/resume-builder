@@ -1,29 +1,29 @@
-import { NavBarActions, StyledButton } from 'src/modules/builder/nav-bar/atoms';
-import { BsGithub } from 'react-icons/bs';
-import Image from 'next/image';
-import Link from 'next/link';
-import checkLogin from '../utils/checkLogin';
-import Maybe from './Maybe';
-import { removeToken } from '../utils/helpers';
-import { useRouter } from 'next/router';
-import { useAuthContext } from '../context/AuthContext';
-import { resetResumeStore } from 'src/stores/useResumeStore';
-import { Typography } from '@mui/material';
+import { Typography } from '@mui/material'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { BsGithub } from 'react-icons/bs'
+import { NavBarActions, StyledButton } from 'src/modules/builder/nav-bar/atoms'
+import { resetResumeStore } from 'src/stores/useResumeStore'
+import { useAuthContext } from '../context/AuthContext'
+import checkLogin from '../utils/checkLogin'
+import { removeToken } from '../utils/helpers'
+import Maybe from './Maybe'
 
 const Navbar = () => {
-  const { user, setUser } = useAuthContext();
-  const isLoggedIn = checkLogin(user);
-  const router = useRouter();
+  const { user, setUser } = useAuthContext()
+  const isLoggedIn = checkLogin(user)
+  const router = useRouter()
 
   const handleLogout = async () => {
-    removeToken();
-    setUser(null);
+    removeToken()
+    setUser(null)
     await new Promise<void>((resolve) => {
-      resetResumeStore();
-      resolve();
-    });
-    router.push('/');
-  };
+      resetResumeStore()
+      resolve()
+    })
+    router.push('/')
+  }
 
   return (
     <nav className="sticky top-0 z-20 h-14 w-full bg-resume-800 flex py-2.5 px-4 xl:px-60 items-center shadow-level-8dp">
@@ -80,6 +80,6 @@ const Navbar = () => {
         </NavBarActions>
       </div>
     </nav>
-  );
-};
-export default Navbar;
+  )
+}
+export default Navbar

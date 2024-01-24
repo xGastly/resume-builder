@@ -1,23 +1,23 @@
-import { ColorBox, ColorBoxWrapper } from '../atoms';
+import { ColorBox, ColorBoxWrapper } from '../atoms'
 
-import { IThemeColor } from 'src/helpers/constants/index.interface';
-import Image from 'next/image';
-import { SYSTEM_COLORS } from 'src/helpers/constants/index';
-import { useThemes } from 'src/stores/themes';
+import Image from 'next/image'
+import { SYSTEM_COLORS } from 'src/helpers/constants/index'
+import { IThemeColor } from 'src/helpers/constants/index.interface'
+import { useThemes } from 'src/stores/themes'
 
 export const ThemeSelect = () => {
-  const activeTheme = useThemes((state) => state.selectedTheme);
+  const activeTheme = useThemes((state) => state.selectedTheme)
 
   const handleActiveTheme = (themeObject: IThemeColor) => {
-    useThemes.getState().chooseTheme(themeObject);
-  };
+    useThemes.getState().chooseTheme(themeObject)
+  }
 
   return (
     <div className={`h-[auto] w-[475px] bg-white flex flex-col px-9 py-7 shadow-2xl`}>
       <span className="text-resume-800 font-bold text-lg mb-2">Choose a resume colour scheme</span>
       <div className="w-full">
         {SYSTEM_COLORS.map((themeObject) => {
-          const isActive = themeObject.id === activeTheme.id;
+          const isActive = themeObject.id === activeTheme.id
           return (
             <div
               key={themeObject.id}
@@ -36,9 +36,9 @@ export const ThemeSelect = () => {
                 <Image src={'/icons/selected-tick.svg'} alt="logo" width="28" height="20" />
               )}
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}

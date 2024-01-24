@@ -1,10 +1,10 @@
-import { IVolunteer } from 'src/stores/index.interface';
-import { SectionHeading } from '../atoms/SectionHeading';
-import { SectionSubtitle } from '../atoms/SectionSubtitle';
-import { SectionTitle } from '../atoms/SectionTitle';
-import { dateParser } from 'src/helpers/utils';
-import { SectionList } from '../atoms/SectionList';
-import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer';
+import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer'
+import { dateParser } from 'src/helpers/utils'
+import { IVolunteer } from 'src/stores/index.interface'
+import { SectionHeading } from '../atoms/SectionHeading'
+import { SectionList } from '../atoms/SectionList'
+import { SectionSubtitle } from '../atoms/SectionSubtitle'
+import { SectionTitle } from '../atoms/SectionTitle'
 
 export const VolunteerSection = ({ volunteer }: { volunteer: IVolunteer[] }) => {
   return (
@@ -30,8 +30,8 @@ export const VolunteerSection = ({ volunteer }: { volunteer: IVolunteer[] }) => 
               </SectionList>
             </div>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}

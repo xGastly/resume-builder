@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Maybe from 'src/helpers/common/Maybe';
+import Image from 'next/image'
+import Maybe from 'src/helpers/common/Maybe'
 
 const persons = [
   {
@@ -16,13 +16,13 @@ const persons = [
     github: '',
     facebook: '',
   },
-];
+]
 
 const PersonCard = ({ children }: { children: React.ReactNode }) => (
   <div className="transition ease-in-out delay-100 duration-300 px-6 py-8 flex flex-col items-center text-center shadow hover:shadow-xl rounded-xl border-2 border-resume-50 hover:border-resume-100">
     {children}
   </div>
-);
+)
 
 const ProfileSocial = ({ github, facebook }: { github: string; facebook: string }) => (
   <div className="flex gap-4">
@@ -38,7 +38,7 @@ const ProfileSocial = ({ github, facebook }: { github: string; facebook: string 
       </a>
     </Maybe>
   </div>
-);
+)
 
 export default function Person() {
   return (
@@ -58,5 +58,5 @@ export default function Person() {
         </PersonCard>
       ))}
     </>
-  );
+  )
 }

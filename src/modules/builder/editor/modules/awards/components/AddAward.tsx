@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
-import { OutlinedButton } from 'src/helpers/common/atoms/Buttons';
-import { useAwards } from 'src/stores/awards';
-import { IAwardItem } from 'src/stores/awards.interface';
+import { useMemo } from 'react'
+import { OutlinedButton } from 'src/helpers/common/atoms/Buttons'
+import { useAwards } from 'src/stores/awards'
+import { IAwardItem } from 'src/stores/awards.interface'
 
 const NEW_AWARD: IAwardItem = {
   title: '',
@@ -9,31 +9,31 @@ const NEW_AWARD: IAwardItem = {
   date: null,
   summary: '',
   id: '',
-};
+}
 
 const AddAward = ({
   handleChange,
   isEmpty,
 }: {
-  handleChange: (name: string, isExpanded: boolean) => void;
-  isEmpty: boolean;
+  handleChange: (name: string, isExpanded: boolean) => void
+  isEmpty: boolean
 }) => {
-  const addAwardToStore = useAwards((state) => state.add);
+  const addAwardToStore = useAwards((state) => state.add)
 
   const onCreateEducation = () => {
-    const uniqueExpandedId = `${Math.random()}`;
-    NEW_AWARD.id = uniqueExpandedId;
-    addAwardToStore(NEW_AWARD);
-    handleChange(uniqueExpandedId, true);
-  };
+    const uniqueExpandedId = `${Math.random()}`
+    NEW_AWARD.id = uniqueExpandedId
+    addAwardToStore(NEW_AWARD)
+    handleChange(uniqueExpandedId, true)
+  }
 
   const buttonCaption = useMemo(() => {
     if (isEmpty) {
-      return '+ Add an award';
+      return '+ Add an award'
     } else {
-      return '+ Add more';
+      return '+ Add more'
     }
-  }, [isEmpty]);
+  }, [isEmpty])
 
   return (
     <div className="flex gap-2 mt-3">
@@ -41,7 +41,7 @@ const AddAward = ({
         {buttonCaption}
       </OutlinedButton>
     </div>
-  );
-};
+  )
+}
 
-export default AddAward;
+export default AddAward

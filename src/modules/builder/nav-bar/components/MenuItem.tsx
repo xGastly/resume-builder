@@ -1,20 +1,20 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react'
 
-import { INavMenuItemProps } from './MenuItem.interface';
-import Image from 'next/image';
-import { NavMenuPopover } from './NavMenuPopover';
-import { StyledButton } from '../atoms';
+import Image from 'next/image'
+import { StyledButton } from '../atoms'
+import { INavMenuItemProps } from './MenuItem.interface'
+import { NavMenuPopover } from './NavMenuPopover'
 
 export const NavMenuItem = ({ caption, popoverChildren }: INavMenuItemProps) => {
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <Fragment>
@@ -38,5 +38,5 @@ export const NavMenuItem = ({ caption, popoverChildren }: INavMenuItemProps) => 
         {popoverChildren}
       </NavMenuPopover>
     </Fragment>
-  );
-};
+  )
+}

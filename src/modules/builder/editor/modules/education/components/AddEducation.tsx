@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
-import { OutlinedButton } from 'src/helpers/common/atoms/Buttons';
-import { useEducations } from 'src/stores/education';
-import { IEducationItem } from 'src/stores/education.interface';
+import { useMemo } from 'react'
+import { OutlinedButton } from 'src/helpers/common/atoms/Buttons'
+import { useEducations } from 'src/stores/education'
+import { IEducationItem } from 'src/stores/education.interface'
 
 const NEW_EDUCATION: IEducationItem = {
   institution: '',
@@ -14,31 +14,31 @@ const NEW_EDUCATION: IEducationItem = {
   score: '',
   courses: [],
   id: '',
-};
+}
 
 const AddEducation = ({
   handleChange,
   isEmpty,
 }: {
-  handleChange: (name: string, isExpanded: boolean) => void;
-  isEmpty: boolean;
+  handleChange: (name: string, isExpanded: boolean) => void
+  isEmpty: boolean
 }) => {
-  const addEducation = useEducations((state) => state.add);
+  const addEducation = useEducations((state) => state.add)
 
   const onCreateEducation = () => {
-    const uniqueExpandedId = `${Math.random()}`;
-    NEW_EDUCATION.id = uniqueExpandedId;
-    addEducation(NEW_EDUCATION);
-    handleChange(uniqueExpandedId, true);
-  };
+    const uniqueExpandedId = `${Math.random()}`
+    NEW_EDUCATION.id = uniqueExpandedId
+    addEducation(NEW_EDUCATION)
+    handleChange(uniqueExpandedId, true)
+  }
 
   const buttonCaption = useMemo(() => {
     if (isEmpty) {
-      return '+ Add an education';
+      return '+ Add an education'
     } else {
-      return '+ Add more';
+      return '+ Add more'
     }
-  }, [isEmpty]);
+  }, [isEmpty])
 
   return (
     <div className="flex gap-2 mt-3">
@@ -46,7 +46,7 @@ const AddEducation = ({
         {buttonCaption}
       </OutlinedButton>
     </div>
-  );
-};
+  )
+}
 
-export default AddEducation;
+export default AddEducation

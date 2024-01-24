@@ -1,9 +1,9 @@
-import { Slider } from '@mui/material';
+import { Slider } from '@mui/material'
 
 const SliderValue = ({ level, setLevel }: { level: number; setLevel: (v: number) => void }) => {
   const sliderhangeHandler = (_: Event, value: number | number[]) => {
-    setLevel(value as number);
-  };
+    setLevel(value as number)
+  }
 
   return (
     <div className="flex mt-4">
@@ -15,7 +15,7 @@ const SliderValue = ({ level, setLevel }: { level: number; setLevel: (v: number)
       />
       <div className="bg-custom-grey rounded-md px-2 py-1 ml-auto">{level}</div>
     </div>
-  );
-};
+  )
+}
 
-export default SliderValue;
+export default SliderValue
