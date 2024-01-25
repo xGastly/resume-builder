@@ -59,7 +59,7 @@ const NavBarLayout = () => {
       },
       activities: useActivity.getState().activities,
     }
-    const fileName = updatedResumeJson.basics.name + '_' + new Date().toLocaleString()
+    const fileName = `${updatedResumeJson.basics.name}_${new Date().toLocaleString()}`
     const exportType = exportFromJSON.types.json
     exportFromJSON({
       data: updatedResumeJson,
@@ -93,7 +93,7 @@ const NavBarLayout = () => {
 
     if (user) {
       const { data, status } = await UserAPI.updateUserResume(user.id, updatedResumeJson)
-      if (status != 200) {
+      if (status !== 200) {
         setMessageSave('Data update failed.')
       }
     } else {
@@ -104,7 +104,7 @@ const NavBarLayout = () => {
   }, [user])
 
   const handleFileChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    const fileObj = event.target.files && event.target.files[0]
+    const fileObj = event.target.files?.[0]
     if (!fileObj) {
       return
     }

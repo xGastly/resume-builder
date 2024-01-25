@@ -8,7 +8,7 @@
     "clean": "yarn cache clean && git clean -xdf",
     "dev": "next dev",
     "export": "next export",
-    "lint": "yarn dlx @biomejs/biome check --apply .",
+    "lint": "yarn dlx @biomejs/biome@1.4.1 check --apply .",
     "start": "next start",
     "start:story": "start-storybook -p 6006",
     "test": "jest",

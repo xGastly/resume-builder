@@ -1,6 +1,6 @@
 import produce from 'immer'
 import resumeData from 'src/helpers/constants/resume-data.json'
-import create, { SetState, GetState } from 'zustand'
+import create, { GetState, SetState } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { IVolunteeringItem, IVolunteeringStore } from './volunteering.interface'
 

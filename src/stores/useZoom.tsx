@@ -1,4 +1,4 @@
-import create, { SetState, GetState } from 'zustand'
+import create, { GetState, SetState } from 'zustand'
 
 interface IZoomStore {
   zoom: number
