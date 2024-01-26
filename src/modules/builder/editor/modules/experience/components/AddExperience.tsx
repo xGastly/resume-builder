@@ -35,9 +35,8 @@ const AddExperience = ({
   const buttonCaption = useMemo(() => {
     if (isEmpty) {
       return '+ Add an experience'
-    } else {
-      return '+ Add more'
     }
+    return '+ Add more'
   }, [isEmpty])
 
   return (

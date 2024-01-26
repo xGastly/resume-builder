@@ -16,7 +16,7 @@ const VolunteeringLayout = () => {
   useEffect(() => {
     setExpanded(allVolunteeringExps[0]?.id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [allVolunteeringExps])
 
   const handleChange = (panel: string, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false)

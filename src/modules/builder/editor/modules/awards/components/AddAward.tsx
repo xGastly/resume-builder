@@ -30,9 +30,8 @@ const AddAward = ({
   const buttonCaption = useMemo(() => {
     if (isEmpty) {
       return '+ Add an award'
-    } else {
-      return '+ Add more'
     }
+    return '+ Add more'
   }, [isEmpty])
 
   return (

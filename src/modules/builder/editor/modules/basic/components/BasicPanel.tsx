@@ -32,11 +32,9 @@ const BasicPanel = ({
         noValidate
         autoComplete="off"
       >
-        {activeTab == 0 && (
-          <Contacts basicTabs={basicTabs} onChangeHandler={onChangeHandler}></Contacts>
-        )}
-        {activeTab == 1 && <Links basicTabs={basicTabs} onChangeHandler={onChangeHandler}></Links>}
-        {activeTab == 2 && <About basicTabs={basicTabs} onChangeHandler={onChangeHandler}></About>}
+        {activeTab === 0 && <Contacts basicTabs={basicTabs} onChangeHandler={onChangeHandler} />}
+        {activeTab === 1 && <Links basicTabs={basicTabs} onChangeHandler={onChangeHandler} />}
+        {activeTab === 2 && <About basicTabs={basicTabs} onChangeHandler={onChangeHandler} />}
       </Box>
     </Fragment>
   )

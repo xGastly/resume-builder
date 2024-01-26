@@ -9,9 +9,10 @@ export const HTMLRenderer = ({ htmlString }: { htmlString: string }) => {
     return parseHtmlStringToHtml(htmlString, {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       replace: (domNode: any) => {
-        if (domNode.attribs && domNode.attribs.href && domNode.name === 'a') {
+        if (domNode.attribs?.href && domNode.name === 'a') {
           return <Link href={domNode.attribs.href}>{domToReact(domNode.children)}</Link>
-        } else if (domNode.name === 'script') {
+        }
+        if (domNode.name === 'script') {
           return <></>
         }
       },

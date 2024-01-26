@@ -58,7 +58,11 @@ const SkillPill = ({
           {name}
         </span>
         {showLevel && <span className="ml-2">{level}</span>}
-        <button className="ml-2 min-w-max flex items-center" onClick={() => onDelete(index)}>
+        <button
+          className="ml-2 min-w-max flex items-center"
+          onClick={() => onDelete(index)}
+          type="button"
+        >
           <Image src="/icons/close.svg" width={16} height={16} alt="close" />
         </button>
       </div>

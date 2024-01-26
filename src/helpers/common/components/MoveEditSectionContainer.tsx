@@ -36,9 +36,10 @@ const MoveEditSection = ({
     <div className="shadow-sm rounded-lg">
       <div
         className={`bg-resume-100 shadow-sm h-12 w-full ${
-          expanded ? `rounded-t-lg` : `rounded-lg`
+          expanded ? 'rounded-t-lg' : 'rounded-lg'
         } relative flex items-center justify-between pl-4 pr-5 text-resume-800 font-bold text-lg select-none cursor-pointer z-10`}
         onClick={clickHandler}
+        onKeyDown={() => {}}
       >
         <span className="w-[15rem] overflow-hidden text-ellipsis whitespace-nowrap" title={title}>
           {title}
@@ -47,7 +48,7 @@ const MoveEditSection = ({
           {length > 1 && (
             <Fragment>
               <Image
-                src={'/icons/up-arrow.svg'}
+                src="/icons/up-arrow.svg"
                 width={16}
                 height={16}
                 alt="up-arrow"
@@ -57,7 +58,7 @@ const MoveEditSection = ({
                 }}
               />
               <Image
-                src={'/icons/down-arrow.svg'}
+                src="/icons/down-arrow.svg"
                 width={16}
                 height={16}
                 alt="down-arrow"
@@ -69,7 +70,7 @@ const MoveEditSection = ({
             </Fragment>
           )}
           <Image
-            src={'/icons/delete.svg'}
+            src="/icons/delete.svg"
             width={14}
             height={18}
             alt="delete"
@@ -83,7 +84,7 @@ const MoveEditSection = ({
       <AnimatePresence>
         {expanded && (
           <motion.div
-            className={`bg-resume-10 relative rounded-b-lg px-4 pt-6 pb-2 overflow-hidden`}
+            className="bg-resume-10 relative rounded-b-lg px-4 pt-6 pb-2 overflow-hidden"
             exit={animation.exit}
           >
             {children}

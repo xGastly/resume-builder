@@ -70,18 +70,18 @@ const Links = ({
 
   useEffect(() => {
     const defaultNetworks = { ...SUPPORTED_NETWORK_DEFAULT_STATE }
-    Object.keys(SUPPORTED_NETWORKS).forEach((ntwk) => {
+    for (const ntwk of Object.keys(SUPPORTED_NETWORKS)) {
       const matchedNetwork = basicTabs.profiles.find(
         (profile: IProfileNetwork) => profile.network === ntwk
       )
       if (matchedNetwork) {
         defaultNetworks[ntwk] = matchedNetwork
       }
-    })
+    }
     setNetworks(defaultNetworks)
     onChangeHandler(Object.values(defaultNetworks), 'profiles')
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [onChangeHandler, basicTabs.profiles])
 
   const onURLChange = (value: string, network: string) => {
     const profiles = basicTabs.profiles

@@ -35,9 +35,8 @@ const AddEducation = ({
   const buttonCaption = useMemo(() => {
     if (isEmpty) {
       return '+ Add an education'
-    } else {
-      return '+ Add more'
     }
+    return '+ Add more'
   }, [isEmpty])
 
   return (

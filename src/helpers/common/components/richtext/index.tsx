@@ -42,7 +42,7 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
       initEditor()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [value])
 
   useEffect(() => {
     if (editorRef.current && editorInstanceCreated) {
@@ -68,7 +68,7 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
       </div>
       <textarea
         ref={editorContainerRef}
-        className={`min-h-[200px] min-w-full bg-[rgba(0,0,0,0.06)]`}
+        className={'min-h-[200px] min-w-full bg-[rgba(0,0,0,0.06)]'}
       />
     </div>
   )

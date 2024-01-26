@@ -28,7 +28,7 @@ const allActivityTabs: IAllActivityTabs = {
 }
 
 const ActivitiesLayout = () => {
-  const [activeTab, setActiveTab] = useState(allActivityTabs['involvements'])
+  const [activeTab, setActiveTab] = useState(allActivityTabs.involvements)
 
   const changeActiveTab = (event: SyntheticEvent, key: string) => {
     const selectedTab = allActivityTabs[key]
@@ -39,11 +39,7 @@ const ActivitiesLayout = () => {
 
   return (
     <Fragment>
-      <BasicHeader
-        activeTab={activeTab}
-        changeActiveTab={changeActiveTab}
-        tabs={allActivityTabs}
-      ></BasicHeader>
+      <BasicHeader activeTab={activeTab} changeActiveTab={changeActiveTab} tabs={allActivityTabs} />
       <BasicPanel activeTab={activeTab} />
     </Fragment>
   )

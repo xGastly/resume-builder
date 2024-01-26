@@ -31,7 +31,7 @@ export const TemplateSlider = () => {
     }
 
     return () => {
-      splideInstanceRef.current && splideInstanceRef.current.destroy()
+      splideInstanceRef.current?.destroy()
     }
   }, [])
 
@@ -104,6 +104,7 @@ export const TemplateSlide = ({
         onClick={() => {
           onChangeTemplate(id)
         }}
+        onKeyDown={() => {}}
       >
         <Image src={thumbnail} alt={name} layout="fill" />
 

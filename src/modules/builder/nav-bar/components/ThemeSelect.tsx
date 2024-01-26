@@ -13,7 +13,7 @@ export const ThemeSelect = () => {
   }
 
   return (
-    <div className={`h-[auto] w-[475px] bg-white flex flex-col px-9 py-7 shadow-2xl`}>
+    <div className={'h-[auto] w-[475px] bg-white flex flex-col px-9 py-7 shadow-2xl'}>
       <span className="text-resume-800 font-bold text-lg mb-2">Choose a resume colour scheme</span>
       <div className="w-full">
         {SYSTEM_COLORS.map((themeObject) => {
@@ -25,6 +25,7 @@ export const ThemeSelect = () => {
                 isActive ? 'bg-resume-50 border-resume-500' : 'border-[#a9a9a9]'
               } hover:cursor-pointer`}
               onClick={() => handleActiveTheme(themeObject)}
+              onKeyDown={() => {}}
             >
               <ColorBoxWrapper>
                 <ColorBox bgColor={themeObject.backgroundColor} />

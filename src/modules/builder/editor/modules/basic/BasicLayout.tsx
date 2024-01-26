@@ -16,16 +16,8 @@ const BasicLayout = () => {
 
   return (
     <Fragment>
-      <BasicHeader
-        activeTab={activeTab}
-        changeActiveTab={changeActiveTab}
-        tabTitles={tabTitles}
-      ></BasicHeader>
-      <BasicPanel
-        activeTab={activeTab}
-        basicTabs={basicTabs}
-        onChangeText={onChangeText}
-      ></BasicPanel>
+      <BasicHeader activeTab={activeTab} changeActiveTab={changeActiveTab} tabTitles={tabTitles} />
+      <BasicPanel activeTab={activeTab} basicTabs={basicTabs} onChangeText={onChangeText} />
     </Fragment>
   )
 }
