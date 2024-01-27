@@ -16,7 +16,7 @@ const AwardsLayout = () => {
   useEffect(() => {
     setExpanded(allAwards[0]?.id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allAwards])
+  }, [])
 
   const handleChange = (panel: string, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false)

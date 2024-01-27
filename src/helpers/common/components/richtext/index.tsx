@@ -1,4 +1,4 @@
-import 'jodit/build/jodit.min.css'
+import 'jodit/es2021/jodit.min.css'
 import { memo, useEffect, useRef, useState } from 'react'
 
 import { LinkPlugin } from './plugins/link'

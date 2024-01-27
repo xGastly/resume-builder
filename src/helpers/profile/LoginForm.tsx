@@ -24,8 +24,8 @@ const LoginForm = () => {
     damping: 17,
   }
 
-  const handleEmailChange = React.useCallback((e) => setEmail(e.target.value), [setEmail])
-  const handlePasswordChange = React.useCallback((e) => setPassword(e.target.value), [setPassword])
+  const handleEmailChange = React.useCallback((e) => setEmail(e.target.value), [])
+  const handlePasswordChange = React.useCallback((e) => setPassword(e.target.value), [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
